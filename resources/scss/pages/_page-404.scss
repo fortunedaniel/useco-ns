@@ -1,0 +1,18 @@
+.error-page {
+    text-align: center;
+
+    .error-code {
+        color: var(--cl-secondary-950);
+        font-size: clamp(8rem, 20vw, 22rem);
+        font-weight: 900;
+        line-height: .9;
+    }
+
+    h1 {
+        margin-block: var(--spacing-24) var(--spacing-12);
+    }
+
+    .button-primary {
+        margin-top: var(--spacing-24);
+    }
+}

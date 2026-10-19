@@ -1,0 +1,21 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/motions.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+:root {
+    --motion-fast: 150ms;
+    --motion-default: 300ms;
+    --motion-slow: 500ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-fast: 0ms;
+        --motion-default: 0ms;
+        --motion-slow: 0ms;
+    }
+}

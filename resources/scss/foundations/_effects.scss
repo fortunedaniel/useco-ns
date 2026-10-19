@@ -1,0 +1,21 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/effects.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+:root {
+    --glass-background: rgb(255 255 255 / 12%);
+    --glass-border: rgb(255 255 255 / 22%);
+    --glass-blur: 18px;
+    --glass-saturation: 140%;
+    --glass-shadow: 0 8px 24px rgb(24 24 36 / 14%);
+}
+
+@mixin glass {
+    border: 1px solid var(--glass-border);
+    background: var(--glass-background);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+}

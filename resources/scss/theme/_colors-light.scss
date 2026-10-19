@@ -1,0 +1,63 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/colors/light.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+:root,
+[data-theme="light"] {
+    --cl-primary-50: #f5f5ff;
+    --cl-primary-100: #ebebff;
+    --cl-primary-200: #dadaff;
+    --cl-primary-300: #c6c6ff;
+    --cl-primary-400: #b2b2ff;
+    --cl-primary-500: #9e9eff;
+    --cl-primary-600: #8d8dff;
+    --cl-primary-700: #7e7eff;
+    --cl-primary-800: #7070ff;
+    --cl-primary-900: #6464ff;
+    --cl-primary-950: #5757ff;
+
+    --cl-secondary-50: #f8fbf9;
+    --cl-secondary-100: #f2f7f4;
+    --cl-secondary-200: #e7f1ea;
+    --cl-secondary-300: #daeadf;
+    --cl-secondary-400: #cde2d4;
+    --cl-secondary-500: #c0dac8;
+    --cl-secondary-600: #b5d4bf;
+    --cl-secondary-700: #abceb7;
+    --cl-secondary-800: #a2c9af;
+    --cl-secondary-900: #9bc5a9;
+    --cl-secondary-950: #92c0a1;
+
+    --cl-accent-50: #fef9f6;
+    --cl-accent-100: #fdf3ed;
+    --cl-accent-200: #fbe8df;
+    --cl-accent-300: #fadccd;
+    --cl-accent-400: #f8d0bb;
+    --cl-accent-500: #f6c3aa;
+    --cl-accent-600: #f4b99b;
+    --cl-accent-700: #f3b08e;
+    --cl-accent-800: #f1a782;
+    --cl-accent-900: #f0a078;
+    --cl-accent-950: #ef986c;
+
+    --cl-neutral-50: #faf8f2;
+    --cl-neutral-100: #f1f1f7;
+    --cl-neutral-200: #e4e4ed;
+    --cl-neutral-300: #d2d2de;
+    --cl-neutral-400: #b8b8c7;
+    --cl-neutral-500: #9696a8;
+    --cl-neutral-600: #737386;
+    --cl-neutral-700: #57576a;
+    --cl-neutral-800: #3d3d4f;
+    --cl-neutral-900: #292938;
+    --cl-neutral-950: #181824;
+
+    --cl-notification-positive: #3f8f72;
+    --cl-notification-promote: #5757ff;
+    --cl-notification-neutral: #737386;
+    --cl-notification-warning: #c87832;
+    --cl-notification-critical: #c94f5c;
+}

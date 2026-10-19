@@ -1,0 +1,19 @@
+{
+  "glass": {
+    "figma": {
+      "brightness": 0,
+      "refraction": 79,
+      "depth": 55,
+      "dispersion": 41,
+      "frost": 69,
+      "splay": 0
+    },
+    "web": {
+      "background": "rgb(255 255 255 / 12%)",
+      "border": "rgb(255 255 255 / 22%)",
+      "backdropBlur": 18,
+      "saturation": 140,
+      "shadow": "0 8px 24px rgb(24 24 36 / 14%)"
+    }
+  }
+}

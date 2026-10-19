@@ -1,0 +1,23 @@
+@use "../theme/mixins" as *;
+
+.legal-page .content {
+    @include content-width;
+    max-width: 1000px;
+    padding-block: var(--spacing-120);
+
+    h1 {
+        margin-bottom: var(--spacing-40);
+    }
+
+    h2,
+    h3 {
+        margin-top: var(--spacing-40);
+        margin-bottom: var(--spacing-16);
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: var(--spacing-16);
+    }
+}

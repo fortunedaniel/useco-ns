@@ -1,0 +1,70 @@
+@mixin flex($justify: flex-start, $align: center, $gap: null, $direction: row, $wrap: nowrap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-flow: $direction $wrap;
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+@mixin grid($columns: null, $gap: null) {
+    display: grid;
+
+    @if $columns {
+        grid-template-columns: repeat($columns, minmax(0, 1fr));
+    }
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+@mixin content-width {
+    width: calc(100% - (var(--layout-padding) * 2));
+    margin-inline: auto;
+}
+
+@mixin content-grid {
+    @include content-width;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gutter);
+}
+
+@mixin list-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin mobile-small {
+    @media (max-width: 374px) { @content; }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) { @content; }
+}
+
+
+@mixin tablet-down {
+    @media (max-width: 1199px) { @content; }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1199px) { @content; }
+}
+
+@mixin laptop {
+    @media (min-width: 1200px) and (max-width: 1439px) { @content; }
+}
+
+@mixin desktop {
+    @media (min-width: 1440px) { @content; }
+}

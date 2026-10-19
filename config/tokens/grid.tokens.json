@@ -1,0 +1,44 @@
+{
+  "desktop-large": {
+    "frame": 1728,
+    "columns": 12,
+    "margin": 80,
+    "gutter": 24
+  },
+  "desktop": {
+    "frame": 1440,
+    "columns": 12,
+    "margin": 80,
+    "gutter": 24
+  },
+  "laptop": {
+    "frame": 1280,
+    "columns": 12,
+    "margin": 64,
+    "gutter": 24
+  },
+  "tablet": {
+    "frame": 768,
+    "columns": 8,
+    "margin": 32,
+    "gutter": 16
+  },
+  "mobile-large": {
+    "frame": 440,
+    "columns": 4,
+    "margin": 32,
+    "gutter": 16
+  },
+  "mobile": {
+    "frame": 393,
+    "columns": 4,
+    "margin": 24,
+    "gutter": 16
+  },
+  "mobile-small": {
+    "frame": 375,
+    "columns": 4,
+    "margin": 24,
+    "gutter": 16
+  }
+}

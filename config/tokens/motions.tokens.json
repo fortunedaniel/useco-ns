@@ -1,0 +1,10 @@
+{
+  "duration": {
+    "fast": 150,
+    "default": 300,
+    "slow": 500
+  },
+  "easing": {
+    "standard": "cubic-bezier(0.2, 0, 0, 1)"
+  }
+}

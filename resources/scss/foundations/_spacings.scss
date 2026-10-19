@@ -1,0 +1,67 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/spacings/*.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+:root {
+    --spacing-0: 0px;
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-24: 16px;
+    --spacing-32: 20px;
+    --spacing-40: 24px;
+    --spacing-48: 32px;
+    --spacing-56: 40px;
+    --spacing-64: 48px;
+    --spacing-80: 56px;
+    --spacing-96: 64px;
+    --spacing-120: 80px;
+    --spacing-160: 96px;
+    --spacing-200: 120px;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --spacing-0: 0px;
+        --spacing-4: 4px;
+        --spacing-8: 8px;
+        --spacing-12: 12px;
+        --spacing-16: 16px;
+        --spacing-24: 20px;
+        --spacing-32: 24px;
+        --spacing-40: 32px;
+        --spacing-48: 40px;
+        --spacing-56: 48px;
+        --spacing-64: 56px;
+        --spacing-80: 64px;
+        --spacing-96: 80px;
+        --spacing-120: 96px;
+        --spacing-160: 120px;
+        --spacing-200: 160px;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --spacing-0: 0px;
+        --spacing-4: 4px;
+        --spacing-8: 8px;
+        --spacing-12: 12px;
+        --spacing-16: 16px;
+        --spacing-24: 24px;
+        --spacing-32: 32px;
+        --spacing-40: 40px;
+        --spacing-48: 48px;
+        --spacing-56: 56px;
+        --spacing-64: 64px;
+        --spacing-80: 80px;
+        --spacing-96: 96px;
+        --spacing-120: 120px;
+        --spacing-160: 160px;
+        --spacing-200: 200px;
+    }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "comkani-wordpress-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Starter WordPress generique et modulaire de l Agence ComKani",
+  "scripts": {
+    "init": "tsx scripts/init-project.ts",
+    "dev": "npm run internal:dev-build",
+    "check": "npm run internal:clean && npm run internal:docs-generate && tsx scripts/check-project.ts",
+    "build": "npm run internal:generate && vite build",
+    "preprod": "npm run internal:verify-release && tsx scripts/package-project.ts preproduction",
+    "prod": "npm run internal:verify-release && tsx scripts/package-project.ts production",
+    "docs": "npm run internal:docs-generate && tsx scripts/docs/serve.ts",
+    "internal:generate": "tsx scripts/generate-project-config.ts && tsx scripts/generate-design-system.ts",
+    "internal:verify-release": "npm run internal:generate && npm run internal:lint-scss && npm run internal:typecheck && vite build && npm run check",
+    "internal:lint-scss": "tsx scripts/check-scss.ts",
+    "internal:typecheck": "tsc --noEmit",
+    "internal:docs-generate": "tsx scripts/docs/generate-guide.ts",
+    "internal:dev-build": "npm run internal:generate && node scripts/dev-live-reload.cjs",
+    "internal:release": "tsx scripts/release.ts",
+    "internal:clean": "tsx scripts/clean-system.ts",
+    "internal:wp-setup": "tsx scripts/wp/run.ts setup",
+    "internal:wp-setup-adopt": "tsx scripts/wp/run.ts setup:adopt",
+    "internal:wp-setup-prune": "tsx scripts/wp/run.ts setup:prune",
+    "internal:wp-db-check": "tsx scripts/wp/run.ts db:check",
+    "internal:wp-db-clean": "tsx scripts/wp/run.ts db:clean",
+    "internal:wp-themes-check": "tsx scripts/wp/run.ts themes:check",
+    "internal:wp-themes-clean": "tsx scripts/wp/run.ts themes:clean",
+    "internal:wp-cache": "tsx scripts/wp/run.ts cache"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true
+},
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^10.12.0",
+    "postcss": "^8.5.6",
+    "sass": "^1.86.3",
+    "vite": "^7.0.0",
+    "typescript": "^5.9.2",
+    "tsx": "^4.20.5",
+    "@types/node": "^24.5.2"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

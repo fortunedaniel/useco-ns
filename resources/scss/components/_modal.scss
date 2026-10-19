@@ -1,0 +1,96 @@
+@use "../theme/mixins" as *;
+
+.comkani-modal {
+    width: min(820px, calc(100% - (var(--spacing-24) * 2)));
+    max-height: 90dvh;
+    margin: auto;
+    padding: 0;
+    border: var(--border-1) solid var(--border-subtle);
+    border-radius: var(--radius-16);
+    overflow: hidden;
+    background: var(--cl-background-950);
+    box-shadow: var(--shadow-lg);
+
+    &::backdrop {
+        background: var(--background-overlay);
+        backdrop-filter: blur(var(--spacing-4));
+    }
+}
+
+.comkani-modal-inner {
+    position: relative;
+    max-height: 90dvh;
+    padding: var(--spacing-40);
+    overflow: visible;
+}
+
+.comkani-modal-content {
+    width: 100%;
+}
+
+.comkani-modal-close {
+    @include flex(center);
+    @include square(var(--spacing-40));
+    position: absolute;
+    top: var(--spacing-16);
+    right: var(--spacing-16);
+    z-index: 2;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--cl-primary-100);
+    color: var(--cl-text-950);
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.comkani-modal .form {
+    gap: var(--spacing-12);
+    padding: var(--spacing-24);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+
+    label {
+        gap: var(--spacing-4);
+        font-size: var(--font-size-caption);
+    }
+
+    input,
+    textarea,
+    select {
+        min-height: var(--spacing-40);
+        padding: var(--spacing-8) var(--spacing-12);
+    }
+
+    textarea {
+        min-height: var(--spacing-80);
+        max-height: var(--spacing-80);
+        resize: none;
+    }
+
+    .submit {
+        gap: var(--spacing-16);
+    }
+
+    .consent {
+        font-size: var(--font-size-label-xs) !important;
+        line-height: 1.35;
+    }
+}
+
+@include mobile {
+    .comkani-modal {
+        width: calc(100% - (var(--spacing-16) * 2));
+        max-height: 90dvh;
+    }
+
+    .comkani-modal-inner {
+        max-height: 90dvh;
+        padding: var(--spacing-24);
+    }
+
+    .comkani-modal .form {
+        padding: var(--spacing-16);
+    }
+}

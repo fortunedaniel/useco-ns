@@ -1,0 +1,91 @@
+@use "../theme/mixins" as *;
+
+.button-primary,
+.button-secondary,
+.button-tertiary {
+    @include flex(center, center, var(--spacing-12));
+    position: relative;
+    min-height: 52px;
+    padding: 14px 22px;
+    overflow: hidden;
+    border: var(--border-1) solid transparent;
+    border-radius: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background var(--motion-fast) var(--ease-standard),
+        color var(--motion-fast) var(--ease-standard),
+        border-color var(--motion-fast) var(--ease-standard);
+
+    .button-label {
+        position: relative;
+        z-index: 1;
+        display: block;
+        transition: transform var(--motion-default) var(--ease-standard);
+    }
+
+    &::after {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        content: attr(data-label);
+        transform: translateY(100%);
+        transition: transform var(--motion-default) var(--ease-standard);
+    }
+
+    &:hover .button-label,
+    &:focus-visible .button-label {
+        transform: translateY(-180%);
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+        transform: translateY(0);
+    }
+}
+
+.button-primary {
+    background: var(--cl-primary-950);
+    color: var(--cl-neutral-50);
+
+    &:hover,
+    &:focus-visible {
+        background: var(--cl-primary-900);
+    }
+}
+
+.button-secondary {
+    background: var(--cl-accent-950);
+    color: var(--cl-neutral-950);
+
+    &:hover,
+    &:focus-visible {
+        background: var(--cl-accent-900);
+    }
+}
+
+.button-tertiary {
+    border-color: var(--cl-neutral-950);
+    background: transparent;
+    color: var(--cl-neutral-950);
+
+    &:hover,
+    &:focus-visible {
+        background: var(--cl-neutral-950);
+        color: var(--cl-neutral-50);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button-primary,
+    .button-secondary,
+    .button-tertiary {
+        .button-label,
+        &::after {
+            transition: none;
+        }
+    }
+}

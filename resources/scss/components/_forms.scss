@@ -1,0 +1,101 @@
+@use "../theme/mixins" as *;
+.form {
+    @include grid($gap: var(--spacing-16));
+    background: var(--cl-background-100);
+    padding: var(--spacing-64);
+
+    label {
+        @include grid($gap: 7px);
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        min-height: 48px;
+        padding: var(--spacing-12) var(--spacing-16);
+        border: var(--border-2) solid var(--cl-secondary-950);
+        border-radius: var(--radius-4);
+        background: var(--background-input);
+        color: var(--text-primary);
+
+        &::placeholder {
+    color: var(--cl-text-500);
+    font-size: 1.4rem;
+  }
+    }
+
+    textarea {
+        min-height: 130px;
+        resize: vertical;
+    }
+
+    select {
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-primary);
+
+    option {
+        font-family: inherit;
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        background: var(--background-input);
+    }
+}
+}
+.row {
+    @include grid($gap: var(--spacing-16));
+
+    &-two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+.submit {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--spacing-24);
+}
+
+.consent {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cl-text-500);
+
+    input {
+        min-height: auto;
+        margin-top: var(--spacing-4);
+    }
+}
+.honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+.notice {
+    margin-bottom: var(--spacing-16);
+    padding: var(--spacing-12) var(--spacing-16);
+    border-radius: var(--radius-4);
+
+    &--success {
+        background: var(--background-success);
+        color: var(--cl-success);
+    }
+
+    &--error {
+        background: var(--background-error);
+        color: var(--cl-error);
+    }
+}
+@include mobile {
+    .row-two,
+    .submit {
+        grid-template-columns: 1fr;
+    }
+}

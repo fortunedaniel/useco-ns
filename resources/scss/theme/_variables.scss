@@ -1,0 +1,48 @@
+:root {
+    --cl-text-50: var(--cl-neutral-50);
+    --cl-text-200: var(--cl-neutral-200);
+    --cl-text-400: var(--cl-neutral-400);
+    --cl-text-500: var(--cl-neutral-500);
+    --cl-text-700: var(--cl-neutral-700);
+    --cl-text-950: var(--cl-neutral-950);
+
+    --cl-background-50: var(--cl-neutral-50);
+    --cl-background-100: var(--cl-neutral-100);
+    --cl-background-200: var(--cl-neutral-200);
+    --cl-background-950: var(--cl-neutral-50);
+
+    --background-page: var(--cl-background-950);
+    --background-section: var(--cl-background-200);
+    --background-card: var(--cl-background-50);
+    --background-input: var(--cl-background-50);
+    --background-header: var(--cl-background-950);
+    --background-overlay: color-mix(in srgb, var(--cl-neutral-950) 50%, transparent);
+
+    --text-primary: var(--cl-neutral-950);
+    --text-secondary: var(--cl-neutral-700);
+    --text-muted: var(--cl-neutral-500);
+    --text-inverse: var(--cl-neutral-50);
+
+    --border-subtle: color-mix(in srgb, var(--cl-neutral-950) 8%, transparent);
+    --border-default: var(--cl-neutral-200);
+    --border-strong: var(--cl-neutral-400);
+
+    --cl-success: var(--cl-notification-positive);
+    --cl-info: var(--cl-notification-promote);
+    --cl-warning: var(--cl-notification-warning);
+    --cl-error: var(--cl-notification-critical);
+    --background-success: color-mix(in srgb, var(--cl-success) 12%, transparent);
+    --background-info: color-mix(in srgb, var(--cl-info) 12%, transparent);
+    --background-warning: color-mix(in srgb, var(--cl-warning) 12%, transparent);
+    --background-error: color-mix(in srgb, var(--cl-error) 12%, transparent);
+}
+
+[data-theme="dark"] {
+    --cl-background-950: var(--cl-neutral-50);
+    --background-page: var(--cl-background-950);
+    --background-header: var(--cl-background-950);
+    --text-primary: var(--cl-neutral-950);
+    --text-secondary: var(--cl-neutral-700);
+    --text-muted: var(--cl-neutral-500);
+    --text-inverse: var(--cl-neutral-50);
+}

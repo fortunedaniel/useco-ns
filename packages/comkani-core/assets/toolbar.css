@@ -1,0 +1,99 @@
+:root {
+    --ack-primary: #000a3d;
+    --ack-tertiary: #5c7aff;;
+    --ack-white: #f5f5f5;
+}
+
+#wpadminbar {
+    background: var(--ack-primary)!important;
+}
+
+#wpadminbar .quicklinks > ul > li > a,
+#wpadminbar .quicklinks > ul > li > .ab-item {
+    color: var(--ack-white);
+}
+
+#wpadminbar #wp-admin-bar-root-default {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#wpadminbar #wp-admin-bar-top-secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    float: none;
+}
+
+#wpadminbar #wp-admin-bar-comkani-brand,
+#wpadminbar #wp-admin-bar-comkani-brand > .ab-item {
+    margin: 0;
+    padding: 0;
+}
+
+#wpadminbar #wp-admin-bar-comkani-brand > .ab-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    cursor: default;
+    pointer-events: none;
+}
+
+.comkani-toolbar-brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.comkani-toolbar-brand-icon img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+#wpadminbar #wp-admin-bar-comkani-view-site > .ab-item:hover,
+#wpadminbar #wp-admin-bar-comkani-logout > .ab-item:hover,
+#wpadminbar #wp-admin-bar-comkani-support > .ab-item:hover,
+#wpadminbar #wp-admin-bar-comkani-view-site > .ab-item:focus,
+#wpadminbar #wp-admin-bar-comkani-logout > .ab-item:focus,
+#wpadminbar #wp-admin-bar-comkani-support > .ab-item:focus {
+    background: var(--ack-tertiary);
+    color: var(--ack-white);
+}
+
+#wp-admin-bar-command-palette {
+    display: none !important;
+}
+
+@media (max-width: 782px) {
+    #wpadminbar #wp-admin-bar-root-default {
+        right: 40px;
+        left: 0;
+        width: auto;
+        transform: none;
+    }
+
+    #wpadminbar #wp-admin-bar-comkani-support {
+        display: none;
+    }
+
+    #wpadminbar #wp-admin-bar-comkani-view-site > .ab-item,
+    #wpadminbar #wp-admin-bar-comkani-logout > .ab-item {
+        padding-inline: 8px;
+        font-size: 11px;
+    }
+}

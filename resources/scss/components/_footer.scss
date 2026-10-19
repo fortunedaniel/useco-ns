@@ -1,0 +1,114 @@
+@use "../theme/mixins" as *;
+
+.site-footer {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 90;
+    padding-block: 18px;
+    background: color-mix(in srgb, var(--cl-background-950) 94%, transparent);
+    overflow: visible;
+    backdrop-filter: blur(10px);
+
+    .inner {
+        @include content-width;
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+        gap: var(--spacing-32);
+    }
+
+    .legal a,
+    .privacy button,
+    .credits a {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: calc(var(--spacing-4) * -1);
+            left: 0;
+            height: var(--border-1);
+            background: currentcolor;
+            content: "";
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform var(--motion-default) var(--ease-standard);
+        }
+
+        &:hover::after,
+        &:focus-visible::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+    }
+
+    .socials {
+        @include flex(flex-start, center, var(--spacing-16));
+
+        img {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    .legal .links {
+        @include list-reset;
+        @include flex(center, center, var(--spacing-24), row, wrap);
+        font-size: 1.35rem;
+    }
+
+    .privacy {
+        justify-self: end;
+        font-size: 1.25rem;
+    }
+
+    .credits {
+        @include flex(flex-end, center, 6px, row, wrap);
+        color: var(--text-secondary);
+        white-space: nowrap;
+
+        small {
+            font-size: 1.25rem;
+        }
+
+        a {
+            color: var(--cl-accent-950);
+        }
+    }
+}
+
+@include tablet {
+    .site-footer {
+        position: relative;
+        padding-block: var(--spacing-32);
+        border-top: 1px solid var(--border-subtle);
+        background: var(--cl-background-950);
+        backdrop-filter: none;
+
+        .inner {
+            grid-template-columns: 1fr;
+            align-items: start;
+        }
+
+        .legal .links {
+            justify-content: flex-start;
+        }
+
+        .privacy {
+        justify-self: end;
+        font-size: 1.25rem;
+    }
+
+    .credits {
+            justify-content: flex-start;
+            white-space: normal;
+        }
+    }
+}
+
+@include mobile {
+    .site-footer .credits {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

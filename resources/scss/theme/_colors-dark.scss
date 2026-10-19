@@ -1,0 +1,64 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/colors/dark.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --cl-primary-50: #5757ff;
+    --cl-primary-100: #6464ff;
+    --cl-primary-200: #7070ff;
+    --cl-primary-300: #7e7eff;
+    --cl-primary-400: #8d8dff;
+    --cl-primary-500: #9e9eff;
+    --cl-primary-600: #b2b2ff;
+    --cl-primary-700: #c6c6ff;
+    --cl-primary-800: #dadaff;
+    --cl-primary-900: #ebebff;
+    --cl-primary-950: #f5f5ff;
+
+    --cl-secondary-50: #92c0a1;
+    --cl-secondary-100: #9bc5a9;
+    --cl-secondary-200: #a2c9af;
+    --cl-secondary-300: #abceb7;
+    --cl-secondary-400: #b5d4bf;
+    --cl-secondary-500: #c0dac8;
+    --cl-secondary-600: #cde2d4;
+    --cl-secondary-700: #daeadf;
+    --cl-secondary-800: #e7f1ea;
+    --cl-secondary-900: #f2f7f4;
+    --cl-secondary-950: #f8fbf9;
+
+    --cl-accent-50: #ef986c;
+    --cl-accent-100: #f0a078;
+    --cl-accent-200: #f1a782;
+    --cl-accent-300: #f3b08e;
+    --cl-accent-400: #f4b99b;
+    --cl-accent-500: #f6c3aa;
+    --cl-accent-600: #f8d0bb;
+    --cl-accent-700: #fadccd;
+    --cl-accent-800: #fbe8df;
+    --cl-accent-900: #fdf3ed;
+    --cl-accent-950: #fef9f6;
+
+    --cl-neutral-50: #181824;
+    --cl-neutral-100: #292938;
+    --cl-neutral-200: #3d3d4f;
+    --cl-neutral-300: #57576a;
+    --cl-neutral-400: #737386;
+    --cl-neutral-500: #9696a8;
+    --cl-neutral-600: #b8b8c7;
+    --cl-neutral-700: #d2d2de;
+    --cl-neutral-800: #e4e4ed;
+    --cl-neutral-900: #f1f1f7;
+    --cl-neutral-950: #f8f8fc;
+
+    --cl-notification-positive: #78c7a7;
+    --cl-notification-promote: #8c8cff;
+    --cl-notification-neutral: #b8b8c7;
+    --cl-notification-warning: #e9a45f;
+    --cl-notification-critical: #e67a84;
+}

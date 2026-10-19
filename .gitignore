@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+__MACOSX/
+
+# Node.js
+node_modules/
+
+# Builds temporaires
+assets/build/*
+!assets/build/.gitkeep
+
+# Packages de production
+release/
+
+# Initialisation projet
+.comkani-backups/
+project-assets/
+
+# Sublime Text
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Environnement
+.env
+.env.*
+!.env.example
+
+# Configuration locale de développement
+config/development.json
+
+resources.zip

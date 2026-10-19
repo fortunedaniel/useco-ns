@@ -1,0 +1,75 @@
+@use "../theme/mixins" as *;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--background-page);
+    color: var(--text-primary);
+    font-family: var(--ft-primary);
+    font-size: var(--font-size-body-m);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0;
+}
+
+body.is-mobile-menu-open {
+    overflow: hidden;
+}
+
+main {
+    min-height: 60vh;
+    overflow-x: clip;
+}
+
+.page-content,
+.single-page,
+.archive-page,
+.search-page,
+.error-page {
+    @include content-width;
+    padding-block: var(--spacing-120);
+}
+
+.sr-only,
+.sr-only-focusable:not(:focus, :focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.skip-link:focus {
+    position: fixed;
+    top: var(--spacing-16);
+    left: var(--spacing-16);
+    z-index: 9999;
+    padding: var(--spacing-12) var(--spacing-16);
+    background: var(--cl-primary-950);
+    color: var(--cl-background-50);
+}
+
+:focus-visible {
+    outline: 2px solid var(--cl-primary-950);
+    outline-offset: 3px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}

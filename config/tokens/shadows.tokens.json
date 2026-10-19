@@ -1,0 +1,39 @@
+{
+  "shadows": {
+    "xs": {
+      "x": 0,
+      "y": 1,
+      "blur": 2,
+      "spread": 0,
+      "opacity": 0.12
+    },
+    "sm": {
+      "x": 0,
+      "y": 4,
+      "blur": 12,
+      "spread": 0,
+      "opacity": 0.18
+    },
+    "md": {
+      "x": 0,
+      "y": 8,
+      "blur": 24,
+      "spread": 0,
+      "opacity": 0.24
+    },
+    "lg": {
+      "x": 0,
+      "y": 16,
+      "blur": 40,
+      "spread": 0,
+      "opacity": 0.3
+    },
+    "xl": {
+      "x": 0,
+      "y": 24,
+      "blur": 64,
+      "spread": 0,
+      "opacity": 0.36
+    }
+  }
+}

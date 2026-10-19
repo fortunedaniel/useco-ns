@@ -1,0 +1,89 @@
+@use "../theme/mixins" as *;
+.testimonials {
+    .apostrophe {
+        position: absolute;
+        margin: -64px 0 0 -90px;
+        color: var(--cl-primary-950);
+        font-family: var(--ft-secondary);
+        font-size: 16rem;
+        font-weight: 900;
+    }
+
+    .testimonial {
+        display: none;
+        margin: 0;
+
+        &.is-active {
+            display: block;
+        }
+    }
+
+    .text {
+        margin: 0;
+        font-size: var(--font-size-lead);
+    }
+
+    .author {
+        display: grid;
+        gap: 2px;
+        margin-top: var(--spacing-40);
+
+        .name {
+            font-weight: 900;
+        }
+    }
+
+    .pagination {
+        @include flex(
+            flex-end,
+            center,
+            var(--spacing-8)
+        );
+    }
+
+    .dot {
+        @include square(10px);
+
+        padding: 0;
+        border: 0;
+        border-radius: var(--radius-full);
+        background: var(--cl-secondary-500);
+        cursor: pointer;
+
+        &.is-active {
+            background: var(--cl-primary-950);
+        }
+    }
+}
+@include mobile {
+    .testimonials {
+        text-align: center;
+
+        .apostrophe {
+            display: none;
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        .text {
+            text-align: center;
+
+            p {
+                margin-inline: auto;
+            }
+        }
+
+        .author {
+            justify-items: center;
+            text-align: center;
+        }
+
+        .pagination {
+            justify-content: center;
+            width: 100%;
+            margin-top: var(--spacing-32);
+        }
+    }
+}

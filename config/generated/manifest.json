@@ -1,0 +1,8 @@
+{
+  "generated": true,
+  "doNotEdit": "Fichier généré automatiquement par scripts/generate-project-config.ts",
+  "generatedAt": "2026-10-19T10:16:47.058Z",
+  "source": "config/src/index.ts",
+  "generator": "scripts/generate-project-config.ts",
+  "sha256": "eb12b5b066a5a213f5a93ddf008db7a287a3cdb8db9b8501ae0ab33eaccce2f3"
+}

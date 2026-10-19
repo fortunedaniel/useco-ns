@@ -1,0 +1,29 @@
+@use "../theme/mixins" as *;
+
+.comkani-booking {
+    .form {
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .booking-choice-grid {
+        @include grid(2, var(--spacing-16));
+        padding: var(--spacing-16);
+        border-radius: var(--radius-8);
+        background: color-mix(in srgb, var(--cl-secondary-200) 62%, transparent);
+    }
+
+    .booking-slots-status {
+        min-height: var(--spacing-16);
+        margin: 0;
+        color: var(--cl-primary-600);
+        font-size: 1.3rem;
+    }
+}
+
+@include mobile {
+    .comkani-booking .booking-choice-grid {
+        grid-template-columns: 1fr;
+    }
+}

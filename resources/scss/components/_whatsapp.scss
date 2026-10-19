@@ -1,0 +1,109 @@
+@use "../theme/mixins" as *;
+
+.whatsapp-button {
+    @include square(var(--spacing-56));
+    position: fixed;
+    right: var(--spacing-24);
+    bottom: calc(var(--spacing-64) + var(--spacing-24));
+    z-index: 120;
+    display: grid;
+    place-items: center;
+    padding: var(--spacing-12);
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--cl-primary-950);
+    color: var(--cl-background-50);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform var(--motion-fast) var(--ease-standard);
+
+    &:hover {
+        transform: translateY(calc(var(--spacing-4) * -1));
+    }
+
+    svg {
+        width: var(--spacing-32);
+        height: var(--spacing-32);
+        overflow: visible;
+        fill: currentcolor;
+    }
+}
+
+.whatsapp-form {
+    .intro {
+        margin-bottom: var(--spacing-24);
+        padding-right: var(--spacing-48);
+    }
+
+    .intro h2 {
+        margin-top: var(--spacing-8);
+        font-size: var(--font-size-h3);
+    }
+
+    .intro > p:last-child,
+    .helper {
+        margin-top: var(--spacing-8);
+        color: var(--text-secondary);
+        font-size: var(--font-size-caption);
+    }
+
+    .form {
+        gap: var(--spacing-16);
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .preference {
+        padding: 0;
+        border: 0;
+    }
+
+    .preference legend {
+        margin-bottom: var(--spacing-12);
+        font-family: var(--ft-secondary);
+        font-size: var(--font-size-caption);
+        font-weight: 600;
+    }
+
+    .choices {
+        display: flex;
+        gap: var(--spacing-24);
+        flex-wrap: wrap;
+    }
+
+    .choices label {
+        display: inline-flex;
+        grid-template-columns: none;
+        align-items: center;
+        gap: var(--spacing-8);
+        font-weight: 500;
+    }
+
+    .choices input,
+    .consent input {
+        width: var(--spacing-16);
+        min-height: auto;
+        accent-color: var(--cl-primary-950);
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: none;
+    }
+
+    .button-primary {
+        width: 100%;
+    }
+}
+
+@include tablet-down {
+    .whatsapp-button {
+        right: var(--spacing-16);
+        bottom: var(--spacing-16);
+    }
+
+    .whatsapp-form .row-two {
+        grid-template-columns: 1fr;
+    }
+}

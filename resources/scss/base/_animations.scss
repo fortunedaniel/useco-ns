@@ -1,0 +1,42 @@
+@use "../theme/mixins" as *;
+[data-animate] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+        opacity var(--motion-slow) var(--ease-standard),
+        transform var(--motion-slow) var(--ease-standard);
+
+    &.is-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+[data-animate="left"] {
+    transform: translate3d(-120px, 0, 0);
+}
+
+[data-animate-delay="1"] {
+    transition-delay: var(--motion-fast);
+}
+
+[data-animate-delay="2"] {
+    transition-delay: var(--motion-default);
+}
+
+[data-animate-delay="3"] {
+    transition-delay: var(--motion-slow);
+}
+[data-scroll-shift] {
+    transform: translate3d(0, var(--scroll-shift-y, 0), 0);
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-animate],
+    [data-scroll-shift] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

@@ -1,0 +1,1311 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guide d'utilisation du Starter WordPress</title><style>:root{--navy:#000a3d;--blue:#0022b8;--periwinkle:#5c7aff;--lavender:#ebeeff;--white:#f5f5f5;--orange:#ff7d00;--ink:#171a2d;--muted:#656a80;--line:#dfe2ef;--green:#16845b;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#f7f8fc}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}.shell{display:grid;grid-template-columns:310px minmax(0,1fr);min-height:100vh}.side{position:sticky;top:0;height:100vh;overflow:auto;padding:26px 20px;background:var(--navy);color:white}.brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.mark{display:grid;width:42px;height:42px;border-radius:50%;place-items:center;background:var(--periwinkle);font-weight:900}.brand small{display:block;color:#cbd2ff}.side a{display:block;padding:8px 11px;border-radius:7px;color:#eef0ff;text-decoration:none;font-size:14px}.side a:hover{background:#17296f}.side a.is-active{background:#273c90;color:#fff;box-shadow:inset 3px 0 0 #ff7d00;font-weight:700}.side .group{margin:18px 10px 7px;color:#8999e8;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}main{width:min(1220px,100%);padding:52px clamp(28px,5vw,76px) 120px}.hero{padding:42px;border-radius:20px;background:linear-gradient(135deg,var(--navy),var(--blue));color:white}.eyebrow{color:#cbd2ff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}h1{max-width:930px;margin:12px 0;font-size:clamp(40px,5vw,70px);line-height:.95}h2{margin:0 0 22px;color:var(--navy);font-size:34px}h3{margin:32px 0 12px;color:var(--blue)}p,li,dd{line-height:1.65}section{margin-top:78px;scroll-margin-top:28px}.lead{max-width:880px;font-size:19px}.note,.warning,.success{margin:20px 0;padding:18px 20px;border-radius:10px}.note{border-left:4px solid var(--periwinkle);background:var(--lavender)}.warning{border-left:4px solid var(--orange);background:#fff5e9}.success{border-left:4px solid var(--green);background:#eaf8f2}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.card,.procedure{padding:20px;border:1px solid var(--line);border-radius:12px;background:white}.card strong{color:var(--navy)}code{padding:2px 6px;border-radius:5px;background:#e9ebf5;color:var(--navy)}pre{overflow:auto;padding:18px;border-radius:10px;background:var(--navy);color:white}pre code{padding:0;background:none;color:inherit}table{width:100%;border-collapse:collapse;background:white}th,td{padding:11px 13px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--lavender);color:var(--navy)}.procedure{margin:18px 0;padding:24px}.procedure h3{margin-top:0}.procedure dl{display:grid;grid-template-columns:220px 1fr;gap:0;border:1px solid var(--line);border-radius:9px;overflow:hidden}.procedure dt,.procedure dd{margin:0;padding:11px 13px;border-bottom:1px solid var(--line)}.procedure dt{background:#f2f3f9;font-weight:800;color:var(--navy)}.run{margin-top:16px}.run span{font-weight:800}.steps li{margin:9px 0}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.flow span{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:white}.flow b{color:var(--periwinkle)}.footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted)}@media(max-width:900px){.shell{grid-template-columns:1fr}.side{position:static;height:auto}.side nav{columns:2}main{padding-top:30px}.procedure dl{grid-template-columns:1fr}.procedure dt{border-bottom:0}}
+.side details{margin-top:12px}.side summary{cursor:pointer;margin:14px 10px 8px;color:#8999e8;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.side details a{padding-left:18px}.markdown-chapter{margin-top:64px}.markdown-chapter h2{font-size:30px}.markdown-chapter h3{font-size:22px}.markdown-chapter p{max-width:90ch}.side a{overflow-wrap:anywhere}.side .group{font-size:11px}.side{scrollbar-width:thin}nav{padding-bottom:25px}</style></head><body><div class="shell"><aside class="side"><div class="brand"><div><strong>Agence ComKani</strong><small>Guide d'utilsation</small></div></div><nav><div class="group">Commencer</div><a href="#doc-00-preambule">Bienvenue dans notre espace de développement des site sous WordPress</a><a href="#doc-01-comprendre-le-starter">Comprendre notre Starter WordPress</a><a href="#doc-02-architecture">Comprendre notre architecture</a><a href="#doc-03-prise-en-main">Prise en main du Starter</a><a href="#doc-22-demarrage-multipage">Démarrer un projet WordPress : parcours complet</a><div class="group">Configurer</div><a href="#doc-04-configuration">Comprendre la configuration du Starter</a><a href="#doc-05-commandes">Les commandes que nous utilisons</a><a href="#doc-06-initialisation">Initialiser un nouveau projet</a><div class="group">Construire</div><a href="#doc-07-design-system">Design System et styles du Starter</a><a href="#doc-08-typescript-et-javascript">TypeScript et JavaScript</a><a href="#doc-09-pages-cpt-templates">Créer des pages, sous-pages, champs et CPT</a><a href="#doc-10-composants">Utiliser nos composants</a><div class="group">Administrer</div><a href="#doc-11-comkani-core">Fonctions PHP ComKani et contenus administrables</a><a href="#doc-12-administration-core">Administration WordPress et ComKani Core</a><div class="group">Contrôler</div><a href="#doc-13-qualite-tests-depannage">Qualité, tests et dépannage</a><a href="#doc-14-qualite-documentation">Notre manière de documenter le code</a><div class="group">Livrer</div><a href="#doc-15-preproduction-production">Préproduction et production</a><a href="#doc-16-parcours-livraison">Préproduction, livraison et mise en ligne</a><div class="group">Faire évoluer</div><a href="#doc-17-git-et-maintenance">Git, maintenance et évolution du Starter</a><a href="#doc-18-contribuer-au-guide">Faire vivre ce guide ensemble</a><details><summary>Archives et références (8)</summary><a href="#doc-19-audit-etat-starter">État technique du Starter ComKani</a><a href="#doc-20-audit-technique">Audit technique et recette du starter</a><a href="#doc-21-generalisation-v1">Généraliser le Starter ComKani</a><a href="#doc-23-limites-et-tests">Limites et vérifications avant adoption</a><a href="#doc-24-securite-dependances">Sécurité des dépendances Node.js</a><a href="#doc-25-guide-exploitation-starter">Procédure de création et de livraison d&#39;un projet ComKani</a><a href="#doc-26-recette-core-1-9">Recette de non-régression : ComKani Core 1.9</a><a href="#doc-27-inventaire-fichiers">Inventaire technique du Starter ComKani</a></details></nav></aside><main><section class="markdown-chapter" id="doc-00-preambule"><h2>Bienvenue dans notre espace de développement des site sous WordPress</h2>
+<h3>Un mot de Kani</h3>
+<p>Bienvenue dans le guide développeur de l&#39;Agence ComKani.</p>
+<p>J&#39;ai souhaité créer cet espace pour que chacun puisse comprendre notre façon de construire des sites WordPress, retrouver les choix techniques de l&#39;agence et avancer avec des repères communs. Que tu découvres notre environnement ou que tu travailles déjà dessus depuis plusieurs mois, ce guide est là pour t&#39;accompagner.</p>
+<p>Notre exigence technique doit toujours servir quelque chose de concret : des sites bien construits, une expérience soignée pour leurs utilisateurs et une administration claire pour nos clients. Nous privilégions les solutions solides, lisibles et réutilisables. Nous ne cherchons pas à ajouter des technologies pour le principe.</p>
+<p>Ce guide est aussi un espace d&#39;apprentissage. Quand une notion est complexe, nous prendrons le temps de l&#39;expliquer simplement, de la replacer dans l&#39;architecture et de montrer un exemple. L&#39;objectif est que chacun comprenne ce qu&#39;il fait, pourquoi il le fait et comment vérifier son travail.</p>
+<p>Il évoluera avec nos pratiques. Chacun est invité à signaler une erreur, proposer une clarification ou partager une solution utile à l&#39;équipe.</p>
+<p>Bonne lecture et bon développement !</p>
+<p><strong>Kani Diarra</strong>  - Fondatrice et directrice de l&#39;Agence ComKani</p>
+<h3>À qui s&#39;adresse ce guide ?</h3>
+<p>À toutes les personnes qui rejoignent ou contribuent au Digital Studio sur la partie Développement d&#39;un site web au sein de l&#39;Agence ComKani. Il ne dépend d&#39;aucun collaborateur en particulier et n&#39;est pas destiné aux clients.</p>
+<h3>Le périmètre du guide</h3>
+<p>Architecture, installation, développement, composants, ComKani Core, qualité du code, sécurité technique, tests, préproduction, production et dépannage.</p></section>
+<section class="markdown-chapter" id="doc-01-comprendre-le-starter"><h2>Comprendre notre Starter WordPress</h2>
+<h3>En quelques mots</h3>
+<p>Le Starter WordPress ComKani est notre base de développement commune. Ce n&#39;est pas un site client prérempli : c&#39;est un socle technique à initialiser pour chaque nouveau projet.</p>
+<p><strong>Imagine une boîte à outils organisée :</strong> nous y retrouvons nos fondations, des composants activables et les procédures nécessaires pour commencer un nouveau site sans réinventer les mêmes mécanismes.</p>
+<h3>Les quatre idées à retenir</h3>
+<ul>
+<li><strong>WordPress</strong> gère les contenus et l&#39;administration accessible au client</li>
+<li><strong>le thème Annonceur - ComKani</strong> organise l&#39;affichage, les modèles et les ressources visuelles</li>
+<li><strong>ComKani Core</strong> rassemble les fonctionnalités propriétaires de l&#39;agence qui ne doivent pas dépendre de l&#39;apparence du thème</li>
+<li><strong>les outils de développement</strong> préparent, contrôlent et compilent les ressources sans devenir nécessairement obligatoires sur l&#39;hébergement en production</li>
+</ul>
+<h3>Ce que nous souhaitons préserver</h3>
+<p>Une installation simple, un code maintenable, un chargement maîtrisé des composants, une administration claire et des livrables compatibles avec les hébergements WordPress classiques.</p>
+<h3>Ce qui est encore en chantier</h3>
+<p>La neutralisation complète des contenus historiques, le chargement conditionnel des ressources de chaque composant et la validation fonctionnelle de tous les modules de ComKani Core restent à finaliser. Ne considère pas le starter comme prêt pour une livraison client avant la recette complète.</p></section>
+<section class="markdown-chapter" id="doc-02-architecture"><h2>Comprendre notre architecture</h2>
+<h3>Vue d&#39;ensemble</h3>
+<figure><img src="media/architecture-starter.svg" alt="" loading="lazy"><figcaption></figcaption></figure>
+<p>Le schéma distingue ce qui sert à <strong>développer</strong> de ce qui sert à <strong>faire fonctionner le site</strong>. C&#39;est une distinction importante : un outil présent sur nos ordinateur n&#39;a pas nécessairement besoin d&#39;être installé sur le serveur du client.</p>
+<h3>Les dossiers à connaître</h3>
+<table><tbody>
+<tr><th>Dossier</th><th>Ce qu&#39;on y trouve</th><th>Quand y intervenir</th></tr>
+<tr><td><code>config/src/</code></td><td>les paramètres source du projet</td><td>initialisation ou modification de fonctionnalités</td></tr>
+<tr><td><code>config/generated/</code></td><td>la configuration produite par les scripts</td><td><strong>ATTENTION :</strong>  ne pas éditer directement</td></tr>
+<tr><td><code>components/</code></td><td>les composants réutilisables du thème</td><td>ajout ou adaptation d&#39;un composant</td></tr>
+<tr><td><code>packages/comkani-core/</code></td><td>les fonctions propriétaires de l&#39;agence sur WordPress</td><td>évolution d&#39;une fonctionnalité transversale</td></tr>
+<tr><td><code>resources/scss/</code></td><td>le système de styles source</td><td>ajustement des styles</td></tr>
+<tr><td><code>resources/ts/</code></td><td>les interactions front-end</td><td>développement d&#39;un comportement interactif</td></tr>
+<tr><td><code>scripts/</code></td><td>les outils de génération, de contrôle et de packaging</td><td>maintenance de l&#39;outillage</td></tr>
+<tr><td><code>assets/build/</code></td><td>les fichiers compilés livrables</td><td>vérifier le build, <strong>ATTENTION :</strong> ne pas modifier directement</td></tr>
+<tr><td><code>docs/</code></td><td>le guide interne destiné à l&#39;équipe</td><td>mise à jour des connaissances et procédures</td></tr>
+</tbody></table>
+<h3>Notre règle source / généré</h3>
+<p>Nous modifions les <strong>sources</strong>, puis nous régénérons les fichiers produits automatiquement. Corriger un fichier généré directement ferait perdre le changement à la prochaine compilation, donc faire <strong>ATTENTION</strong> à ne pas modifier les fichiers générés.</p>
+<h3>Pour aller plus loin</h3>
+<p>Consulte « Configuration », « Composants » et « Commandes » pour comprendre chaque partie séparément.</p></section>
+<section class="markdown-chapter" id="doc-03-prise-en-main"><h2>Prise en main du Starter</h2>
+<p><strong>But</strong> : comprendre les couches, reproduire une installation, contribuer sans casser les acquis. ATTENTION : ne pas prétendre que tous les tests métier sont validés. Si des modifications sont nécessaires me prévenir pour que je juge si cela est important ou pas.</p>
+<h3>Avant de toucher au code</h3>
+<ol>
+<li>Consulter <code>README.md</code>, <code>docs/02-architecture.md</code>, <code>docs/25-guide-exploitation-starter.md</code>, <code>docs/26-recette-core-1-9.md</code>.</li>
+<li>Distinguer : Sublime Text ou VS Code(éditeur), Local (serveur de développement), WordPress (CMS), thème Starter (rendu), ComKani Core (modules métier), Node/Vite (compilation de développement), hébergement (production).</li>
+<li>Localiser le thème maître <strong><code>starter-wordpress</code></strong> et le site WordPress vierge <strong><code>comkani-starter</code></strong>. Vérifier le site actif dans Local avant toute commande WP-CLI.</li>
+<li>Ne jamais importer une BDD d&#39;ancien client dans un nouveau projet. Ne jamais partager <code>wp-config.php</code> ni les secrets SMTP.</li>
+</ol>
+<h3>Procédure de démarrage</h3>
+<ul>
+<li><code>node -v</code> : diagnostic en lecture seule ; affiche Node.js installé.</li>
+<li><code>npm ci</code> : recrée <code>node_modules</code> dans le thème, à partir de <code>package-lock.json</code>. Ne modifie ni WordPress ni la BDD. Si installation échouée : relancer après diagnostic.</li>
+<li><code>npm run check</code> : nettoie les métadonnées/copies parasites et régénère le manuel, puis contrôle la cohérence. Il <strong>peut déplacer des copies différentes</strong> vers une quarantaine temporaire ; vérifier le message du terminal.</li>
+<li><code>npm run docs</code> : régénère et ouvre le guide local. Modifier les sources du manuel, pas <code>docs/index.html</code>.</li>
+<li><code>npm run dev</code> : compile les ressources publiques en surveillance et démarre le Live Reload Local. Le terminal reste ouvert, l’arrêter avec <code>Ctrl + C</code>. Les fichiers PHP et CSS du Core ne nécessitent pas Vite pour s’exécuter.</li>
+<li><code>npm run preprod</code> : génère le ZIP à tester dans une installation WordPress indépendante. Il ne déploie rien.</li>
+<li><code>npm run prod</code> : génère le ZIP de production <strong>seulement après validation de la recette</strong>.</li>
+</ul>
+<h3>Travaux de recette à entreprendre</h3>
+<ol>
+<li>Confirmer l&#39;activation de Core dans le ZIP de recette et les permissions agence/client.</li>
+<li>Tester les formulaires contact, devis, candidature, réservation : validation, stockage, erreur SMTP, protection anti-abus.</li>
+<li>Tester l&#39;éditeur, duplication, FAQ, contenu partagé, bandeau et médias.</li>
+<li>Tester cache, journal, restauration depuis la corbeille et intégrations SEO/consentement.</li>
+<li>Vérifier que les fonctions techniques sont inaccessibles aux comptes clients.</li>
+<li>Inscrire <em>testé/non testé</em>, compte, environnement, résultat et anomalie dans <code>docs/26-recette-core-1-9.md</code> et le suivi Asana.</li>
+</ol>
+<h3>Retour arrière</h3>
+<p>Conserver un ZIP de la version précédente du thème et une sauvegarde complète BDD + <code>uploads</code> avant la recette. Restaurer les fichiers précédents si régression visuelle ; pour toute migration de la BDD, restaurer la sauvegarde correspondante.</p></section>
+<section class="markdown-chapter" id="doc-22-demarrage-multipage"><h2>Démarrer un projet WordPress : parcours complet</h2>
+<p>Ce chapitre est le <strong>point de départ opérationnel</strong> pour Kani, Daniel et les futurs membres du Digital Studio. Il décrit l&#39;ordre des opérations. La référence détaillée des pages, CPT et templates se trouve dans le chapitre « Créer des pages, sous-pages, champs et CPT ».</p>
+<h3>Image mentale</h3>
+<p>Le <strong>Starter</strong> est la boîte à outils réutilisable ; <strong>Local</strong> contient une installation WordPress propre à un projet ; <strong>Sublime Text</strong> permet d&#39;éditer les fichiers du Starter ; le <strong>générateur</strong> traduit la configuration en PHP ; le <strong>setup WordPress</strong> synchronise volontairement les pages et menus avec la base locale ; les <strong>templates</strong> produisent l&#39;affichage public. Ces étapes ne sont pas interchangeables.</p>
+<h3>Avant de commencer : ce que tu prépares</h3>
+<ol>
+<li>un site WordPress neuf dans <strong>Local</strong> et une sauvegarde de la base avant la première synchronisation</li>
+<li>une branche Git ou une copie de travail propre au projet, en conservant le Starter maître intact</li>
+<li>le thème ComKani à l&#39;emplacement <code>app/public/wp-content/themes/comkani-starter</code></li>
+<li>Node.js et npm disponibles <strong>uniquement sur l&#39;ordinateur de développement</strong></li>
+<li>le Core ComKani chargé, dans la version compatible avec le thème</li>
+</ol>
+<p><strong>Attention :</strong> travailler dans le dossier d&#39;un projet client, jamais dans le Starter maître pour personnaliser des contenus. Les modifications de la base WordPress ne sont pas annulées par Git.</p>
+<h3>Étape 1. Définir l&#39;identité et le Design System du projet</h3>
+<p>Dans <code>config/src/project.ts</code>, renseigner les informations du client et les paramètres du projet. Dans <code>config/tokens/</code>, remplacer les tokens Figma du projet (couleurs, typographie et autres fondations). Pour les couleurs, conserver au minimum <code>primary</code> et <code>secondary</code> ; ajouter <code>tertiary</code>, <code>quaternary</code> ou toute autre famille nécessaire, avec la même structure entre Light et Dark.</p>
+<p><strong>Résultat attendu :</strong> les fichiers sources décrivent ce projet sans reprendre l&#39;identité d&#39;un ancien client. <strong>À ne pas faire :</strong> modifier à la main les fichiers SCSS générés.</p>
+<h3>Étape 2. Déclarer les pages et les sous-pages</h3>
+<p>Dans <code>config/src/wordpress.ts</code>, modifier <code>pages</code>. Exemple pédagogique :</p>
+<pre><code>
+pages: [
+
+    {title: &#39;Accueil&#39;, slug: &#39;accueil&#39;, home: true},
+
+    {title: &#39;Services&#39;, slug: &#39;services&#39;},
+
+    {title: &#39;Maintenance&#39;, slug: &#39;maintenance&#39;, parent: &#39;services&#39;},
+
+    {title: &#39;Contrats&#39;, slug: &#39;contrats&#39;, parent: &#39;maintenance&#39;},
+
+    {title: &#39;Contact&#39;, slug: &#39;contact&#39;},
+
+    {title: &#39;Actualités&#39;, slug: &#39;actualites&#39;},
+
+],
+
+</code></pre>
+<p>Ici, <code>Maintenance</code> est <strong>une sous-page de Services</strong>, et <code>Contrats</code> une sous-page de Maintenance. <code>parent</code> agit sur la hiérarchie des pages WordPress, <strong>pas sur le menu</strong>.</p>
+<p><strong>Résultat attendu après setup :</strong> les pages existent dans l&#39;administration. <strong>Ne fait pas :</strong> créer leur design ni renseigner leurs contenus.</p>
+<h3>Étape 3. Déclarer le menu principal et ses sous-menus</h3>
+<p>Toujours dans <code>config/src/wordpress.ts</code>, modifier <code>menus</code>. Exemple :</p>
+<pre><code>
+menus: {
+
+    primary: [
+
+        {page: &#39;accueil&#39;, label: &#39;Accueil&#39;},
+
+        {page: &#39;services&#39;, label: &#39;Nos services&#39;, children: [
+
+            {page: &#39;maintenance&#39;, label: &#39;Maintenance&#39;, children: [
+
+                {page: &#39;contrats&#39;, label: &#39;Contrats de maintenance&#39;},
+
+            ]},
+
+        ]},
+
+        {url: &#39;/realisations/&#39;, label: &#39;Réalisations&#39;},
+
+        {page: &#39;contact&#39;, label: &#39;Contact&#39;},
+
+    ],
+
+    footer: {
+
+        navigation: {
+
+            label: &#39;Navigation&#39;,
+
+            items: [{page: &#39;services&#39;}, {page: &#39;contact&#39;}],
+
+        },
+
+    },
+
+    legal: [],
+
+},
+
+</code></pre>
+<p>Le tableau <code>primary</code> contient les liens du menu. La propriété <code>children</code> définit le <strong>sous-menu</strong> et peut être imbriquée. <code>page</code> doit correspondre à un slug déclaré dans <code>pages</code>. Pour un lien externe : <code>{url: &#39;https://exemple.fr&#39;, label: &#39;Partenaire&#39;}</code>. Un sous-menu n&#39;exige <strong>pas</strong> que sa page soit déclarée comme sous-page, même si les deux coïncident souvent.</p>
+<p><strong>Résultat attendu après setup :</strong> menu principal et sous-menus créés ou synchronisés. <strong>Attention :</strong> une nouvelle synchronisation peut réécrire les entrées gérées ; elle ne nettoie pas systématiquement les anciens liens.</p>
+<h3>Étape 4. Déclarer un CPT uniquement si nécessaire</h3>
+<p>Un CPT (<em>Custom Post Type</em>) représente une collection de contenus répétitifs : réalisations, collaborateurs, événements, etc. <strong>Ne pas utiliser un CPT pour une simple page de présentation.</strong></p>
+<p>Toujours dans <code>config/src/wordpress.ts</code> :</p>
+<pre><code>
+postTypes: [
+
+    {
+
+        key: &#39;realisation&#39;,
+
+        label: &#39;Réalisations&#39;,
+
+        singular: &#39;Réalisation&#39;,
+
+        slug: &#39;realisations&#39;,
+
+        archive: true,
+
+        icon: &#39;dashicons-portfolio&#39;,
+
+    },
+
+],
+
+</code></pre>
+<p><strong>Résultat attendu :</strong> le Core enregistre le type <code>realisation</code> dans WordPress, permettant de créer ensuite des fiches. <strong>Ne fait pas :</strong> créer les fiches ni les templates <code>single-realisation.php</code> et <code>archive-realisation.php</code>. L&#39;URL <code>/realisations/</code> est ici réservée à l&#39;archive du CPT. C&#39;est pourquoi <strong>aucune page classique <code>realisations</code> n&#39;est déclarée</strong> à l&#39;étape 2. Si tu préfères une page classique, il faut revoir la stratégie d&#39;archive CPT pour éviter le conflit d&#39;URL. Le lien du menu <code>/realisations/</code> est une URL relative, à vérifier dans WordPress après synchronisation.</p>
+<h3>Étape 5. Définir les champs administrables des pages</h3>
+<p>Créer, dans le projet, <code>config/src/pages/Services.ts</code> :</p>
+<pre><code>
+import {defineEditorPage} from &#39;../../framework/editor.ts&#39;;
+
+
+
+export default defineEditorPage({
+
+    label: &#39;Page Services&#39;,
+
+    groups: [{
+
+        key: &#39;introduction&#39;,
+
+        label: &#39;Introduction&#39;,
+
+        fields: [
+
+            {key: &#39;titre&#39;, label: &#39;Titre&#39;, type: &#39;text&#39;},
+
+            {key: &#39;description&#39;, label: &#39;Description&#39;, type: &#39;textarea&#39;},
+
+            {key: &#39;visuel&#39;, label: &#39;Visuel&#39;, type: &#39;image&#39;},
+
+        ],
+
+    }],
+
+});
+
+</code></pre>
+<p>Puis importer explicitement ce fichier dans <code>config/src/index.ts</code> et l&#39;enregistrer dans <code>pageEditor.pages</code> avec la clé <code>services</code>. Les fichiers placés dans <code>config/src/pages/</code> <strong>ne sont pas découverts automatiquement</strong>. Cette déclaration prépare des champs pour l&#39;administration, mais pas leur affichage sur le site public.</p>
+<h3>Étape 6. Générer et vérifier le projet</h3>
+<p>À la racine du thème, et uniquement dans l&#39;environnement de développement :</p>
+<pre><code>
+npm ci
+
+npm run internal:typecheck
+
+npm run internal:generate
+
+npm run build
+
+</code></pre>
+<ul>
+<li><code>npm ci</code> installe les dépendances de développement selon le lockfile et reconstruit <code>node_modules</code> ; aucun besoin en production</li>
+<li><code>internal:typecheck</code> contrôle le typage sans fabriquer de livraison</li>
+<li><code>internal:generate</code> écrit les fichiers générés, notamment <code>config/generated/project-config.php</code> et les SCSS de fondation</li>
+<li><code>build</code> compile les assets ; vérifier les différences Git après exécution</li>
+</ul>
+<p><strong>Vérifier :</strong> aucune erreur terminal et aucun changement inexpliqué dans les fichiers générés. <strong>Retour arrière :</strong> restaurer les sources depuis Git ; les sorties générées seront recalculées à la prochaine génération.</p>
+<h3>Étape 7. Synchroniser volontairement WordPress dans Local</h3>
+<p>Vérifier que le terminal est ouvert dans <strong>le thème du bon site Local</strong>, et sauvegarder d&#39;abord la base. Une fois la configuration générée et la cible vérifiée, exécuter :</p>
+<pre><code>
+npm run internal:wp-setup
+
+</code></pre>
+<p>Cette commande agit sur la <strong>base WordPress du site Local cible</strong> : pages, paramètres et menus configurés. Elle ne se contente pas de générer des fichiers. Il ne faut pas la lancer directement sur une production ou une base contenant des éléments éditoriaux à préserver. Contrôler ensuite les pages dans <strong>Pages</strong>, la navigation dans l&#39;administration WordPress et les CPT disponibles.</p>
+<p><strong>Retour arrière :</strong> Git ne restaure pas la base ; utiliser la sauvegarde Local prise avant synchronisation.</p>
+<h3>Étape 8. Développer les templates et renseigner les contenus</h3>
+<p>Les pages et CPT sont maintenant déclarés, mais leur design doit être réalisé. Créer les templates WordPress nécessaires au projet (par exemple <code>page-services.php</code>, <code>single-realisation.php</code>, <code>archive-realisation.php</code>) et les composants SCSS/PHP associés. Dans le back-office, renseigner les champs de la page et créer les fiches de CPT.</p>
+<p><strong>Vérifier :</strong> navigation desktop et mobile, sous-menus accessibles au clavier, liens sans erreur 404, rendu des pages, archives et fiches, sauvegarde et réouverture des champs.</p>
+<h3>Étape 9. Contrôle de fin de mise en place</h3>
+<ul>
+<li>pages et sous-pages présentes avec les bons slugs et parents</li>
+<li>sous-menus et liens externes corrects, sans doublons</li>
+<li>archive CPT et page classique sans conflit d&#39;URL</li>
+<li>champs administrables disponibles et sauvegardés</li>
+<li>templates et contenus visibles en front-office</li>
+<li>TypeScript, génération, build et recette WordPress réussis</li>
+</ul>
+<p><strong>Ce qui reste manuel :</strong> création graphique, contenu éditorial, QA finale et décisions SEO. Le Starter automatise les fondations répétitives ; il ne fabrique pas un site client complet sans développement.</p></section>
+<section class="markdown-chapter" id="doc-04-configuration"><h2>Comprendre la configuration du Starter</h2>
+<h3>Image mentale</h3>
+<p><code>config/src/project.ts</code> = identité du projet, organisation et Design System. <code>config/src/wordpress.ts</code> = pages, menus, articles et CPT. <code>config/src/pages/*.ts</code> = définitions facultatives des champs d&#39;une page. <code>config/src/index.ts</code> = assemblage, puis <code>scripts/generate-project-config.ts</code> = traduction en PHP pour WordPress.</p>
+<p>Le <strong>Starter</strong> contient les fondations. <strong>Local</strong> exécute WordPress et stocke ses contenus en base. <strong>Sublime Text</strong> sert à modifier les sources. <strong>Node/Vite</strong> sont utilisés au développement, pas obligatoirement sur OVH/IONOS en production.</p>
+<h3>Qui fait quoi ?</h3>
+<table><tbody>
+<tr><th>Fichier</th><th>Rôle</th><th>Ne fait pas</th></tr>
+<tr><td><code>config/src/project.ts</code></td><td>identité, contacts, tokens</td><td>modifier WordPress en base</td></tr>
+<tr><td><code>config/src/wordpress.ts</code></td><td>définir pages, menus et CPT</td><td>créer le design du projet</td></tr>
+<tr><td><code>config/src/pages/Services.ts</code> <strong>(exemple à créer)</strong></td><td>schéma des champs Services</td><td>être chargé sans import</td></tr>
+<tr><td><code>config/src/index.ts</code></td><td>assembler explicitement les sources</td><td>analyser automatiquement les fichiers du dossier</td></tr>
+<tr><td><code>config/generated/project-config.php</code></td><td>rendre la configuration lisible par PHP</td><td>servir de source à éditer</td></tr>
+<tr><td><code>scripts/wp-setup.php</code></td><td>synchroniser des pages/menus sur WordPress local via WP-CLI</td><td>éditer les templates</td></tr>
+</tbody></table>
+<h3>Exemple pratique</h3>
+<p>Pour un site avec Accueil, Services, une sous-page Maintenance, un sous-menu, un CPT Réalisations et des champs personnalisés, suivre le guide <code>docs/09-pages-cpt-templates.md</code> dans l&#39;ordre. Une déclaration de menu n&#39;est pas une déclaration de page. Une déclaration CPT n&#39;est pas un template.</p>
+<h3>Règle d&#39;exploitation</h3>
+<p>La configuration TypeScript est la source de vérité technique. Les contenus éditoriaux sont dans la base WordPress. Avant de synchroniser : sauvegarder la base, contrôler le site Local ciblé et vérifier que les changements sont souhaités. Des éléments de navigation modifiés dans WordPress peuvent être réécrits lors de la prochaine synchronisation. Les anciennes entrées de menus ne sont pas supprimées automatiquement.</p></section>
+<section class="markdown-chapter" id="doc-05-commandes"><h2>Les commandes que nous utilisons</h2>
+<p>Notre objectif est de retenir peu de commandes quotidiennes. Les scripts techniques auxiliaires continuent d&#39;exister, mais tu n&#39;as pas besoin de les mémoriser.</p>
+<table><tbody>
+<tr><th>Commande</th><th>Son rôle</th><th>Effet principal</th></tr>
+<tr><td><code>npm run init</code></td><td>prépare l&#39;identité du projet</td><td>aperçu ou modification explicite du fichier projet</td></tr>
+<tr><td><code>npm run dev</code></td><td>travaille en mode développement</td><td>génère et surveille les ressources compilées</td></tr>
+<tr><td><code>npm run check</code></td><td>vérifie la cohérence</td><td>effectue le nettoyage configuré, génère le manuel et contrôle le projet</td></tr>
+<tr><td><code>npm run build</code></td><td>prépare les ressources front-end</td><td>écrit des fichiers générés et compilés</td></tr>
+<tr><td><code>npm run preprod</code></td><td>prépare une archive pour recette</td><td>contrôle, compile et crée un ZIP local</td></tr>
+<tr><td><code>npm run prod</code></td><td>prépare une archive de livraison</td><td>contrôle, compile et crée un ZIP local</td></tr>
+<tr><td><code>npm run docs</code></td><td>ouvre le manuel interne</td><td>génère <code>docs/index.html</code> puis démarre le serveur local</td></tr>
+</tbody></table>
+<h3>Que signifie <code>internal:</code> ?</h3>
+<p>C&#39;est une convention de nommage pour les sous-commandes techniques. Ce n&#39;est pas une fonctionnalité spéciale de npm : elles restent visibles et exécutables. Nous les utilisons derrière les commandes principales.</p>
+<h3>Avant toute commande</h3>
+<p>Nous vérifions toujours son rôle, ses fichiers cibles, ses effets indirects, ses risques et la manière de revenir en arrière. Les commandes d&#39;exemple ne doivent jamais être exécutées avec des valeurs fictives.</p>
+<h3>Production ne veut pas dire déploiement</h3>
+<p>Les commandes de packaging créent des fichiers à livrer. Elles ne publient pas automatiquement le site sur le serveur.</p></section>
+<section class="markdown-chapter" id="doc-06-initialisation"><h2>Initialiser un nouveau projet</h2>
+<p>L’initialisation du Starter ComKani remplace l’identité de la configuration source. <strong>Elle n’est pas un nettoyage de la base de données WordPress.</strong></p>
+<h3>Fonctionnement</h3>
+<p><code>npm run init</code> accepte un nom et un slug. Sans option d’application, le script fournit un aperçu. Une application explicite sauvegarde l’ancien <code>config/src/project.ts</code> dans <code>.comkani-backups/initialization/</code>, puis écrit la nouvelle configuration.</p>
+<p>Le sérialiseur intégré produit une syntaxe TypeScript conforme aux conventions du projet : clés sans guillemets inutiles et chaînes délimitées par des apostrophes simples.</p>
+<h3>Ce qui reste à faire</h3>
+<p>Le Starter WordPress ComKani constitue la base technique de nos nouveaux projets clients. Nous pouvons l&#39;utiliser pour initialiser un site comme US&amp;CO, en créant une installation WordPress indépendante et en personnalisant son identité, ses composants et son Design System.</p>
+<p>La validation complète de la V1 reste un chantier distinct. Avant toute livraison client, nous contrôlons les fonctionnalités réellement utilisées et effectuons la recette du site concerné.</p>
+<h3>Retour arrière</h3>
+<p>Une sauvegarde est créée avant écriture. Pour annuler une initialisation, restaurer la sauvegarde du fichier source puis relancer les contrôles adaptés.</p></section>
+<section class="markdown-chapter" id="doc-07-design-system"><h2>Design System et styles du Starter</h2>
+<h3>Pourquoi nous utilisons un Design System</h3>
+<p>Nous centralisons les couleurs, espacements, typographies et règles visuelles pour obtenir un rendu cohérent et faciliter l&#39;évolution des projets. Les valeurs spécifiques d&#39;un client doivent être configurées pour son projet, sans devenir des valeurs permanentes du Starter générique.</p>
+<h3>Où intervenir</h3>
+<ul>
+<li>Configuration du projet : les fichiers de configuration du Starter.</li>
+<li>Styles du site public : fichiers SCSS du thème, puis génération dans <code>assets/build/main.css</code>.</li>
+<li>Interface d&#39;administration du Core : <code>packages/comkani-core/assets/admin.css</code>, chargé directement par WordPress.</li>
+</ul>
+<h3>Procédure de travail</h3>
+<ol>
+<li>Identifier la valeur ou le composant à modifier et vérifier s&#39;il existe déjà un token réutilisable</li>
+<li>Modifier la source SCSS plutôt que le fichier CSS compilé</li>
+<li>Enregistrer, laisser Vite compiler et contrôler le résultat dans Local</li>
+<li>Tester plusieurs tailles d&#39;écran et les états survol, focus et erreur si nécessaire</li>
+</ol>
+<h3>Limites</h3>
+<p><code>npm run dev</code> ne signifie pas que toutes les pages du navigateur se rechargent automatiquement. Le Live Reload dépend du script de développement réellement installé et de la configuration locale. Le CSS autonome de ComKani Core ne foncitonne pas par la compilation Vite du thème.</p>
+<h3>Vérification et retour arrière</h3>
+<p>Contrôler le CSS produit, l&#39;interface sur Local et la console du navigateur. En cas de régression, revenir au commit Git précédent ou restaurer le fichier source sauvegardé. Ne pas corriger uniquement <code>assets/build/main.css</code> : cette modification serait écrasée par une nouvelle compilation.</p>
+<h3>Familles de couleurs extensibles selon le projet</h3>
+<p><strong>Image mentale :</strong> <code>primary</code> et <code>secondary</code> constituent les familles de base du Starter. Un projet peut déclarer d&#39;autres familles dans les exports Figma, par exemple <code>tertiary</code>, <code>quaternary</code> ou <code>brand-gold</code>. Le générateur lit désormais toutes les familles présentes, au lieu de se limiter à une liste fixe.</p>
+<p><strong>Source de vérité :</strong> <code>config/tokens/colors/light.tokens.json</code> et <code>config/tokens/colors/dark.tokens.json</code>. Les familles <code>primary</code> et <code>secondary</code> sont obligatoires. Les autres sont facultatives, mais doivent être présentes <strong>avec les mêmes noms de nuances dans les deux modes</strong> pour garantir une structure stable. Le générateur conserve les noms des familles et les numéros de nuances, par exemple <code>tertiary.500</code>.</p>
+<p>Exemple de famille supplémentaire dans <strong>les deux fichiers JSON</strong> :</p>
+<pre><code>
+&quot;tertiary&quot;: {
+
+    &quot;500&quot;: {
+
+        &quot;$type&quot;: &quot;color&quot;,
+
+        &quot;$value&quot;: {
+
+            &quot;colorSpace&quot;: &quot;srgb&quot;,
+
+            &quot;components&quot;: [0.80, 0.60, 0.20],
+
+            &quot;alpha&quot;: 1,
+
+            &quot;hex&quot;: &quot;#CC9933&quot;
+
+        }
+
+    }
+
+}
+
+</code></pre>
+<p>L&#39;extrait est une propriété à ajouter dans l&#39;objet JSON existant, <strong>pas un fichier JSON complet</strong>. Respecter la virgule après la famille précédente et utiliser les vraies valeurs exportées depuis Figma. Le mode Dark peut avoir une autre valeur hexadécimale pour <code>tertiary.500</code>, mais le nom de la famille et de la nuance doivent correspondre.</p>
+<p>Après <code>npm run internal:generate</code>, le générateur crée <code>--cl-tertiary-500</code> dans les fichiers SCSS générés du mode correspondant. Utilisation dans un composant :</p>
+<pre><code>
+.project-highlight {
+
+    background-color: var(--cl-tertiary-500);
+
+}
+
+</code></pre>
+<p><strong>Ne pas éditer</strong> <code>resources/scss/theme/_colors-light.scss</code> ou <code>_colors-dark.scss</code> directement : ils sont régénérés. Le système conserve <code>notification</code> comme famille de couleurs fonctionnelles avec ses noms (<code>success</code>, <code>warning</code>, <code>critical</code>, etc.). Un nom de famille est en minuscules avec tirets éventuels ; les nuances de palette sont numériques.</p>
+<p><strong>Vérifier :</strong> exécuter le typecheck et la génération, regarder la présence de <code>--cl-tertiary-500</code> dans les deux SCSS et vérifier l&#39;affichage en Light/Dark. <strong>Retour arrière :</strong> restaurer les JSON depuis Git puis relancer le générateur. Cela ne touche pas directement WordPress ni ses contenus.</p>
+<p><strong>Attention :</strong> générer des noms dynamiques ne crée pas automatiquement des rôles sémantiques (<code>--action-primary</code>, <code>--surface-default</code>, etc.). Ces rôles pourront être définis séparément pour stabiliser les composants réutilisables entre projets.</p></section>
+<section class="markdown-chapter" id="doc-08-typescript-et-javascript"><h2>TypeScript et JavaScript</h2>
+<h3>Notre principe</h3>
+<p>Nous utilisons TypeScript lorsqu&#39;il permet de rendre une interaction plus fiable et plus compréhensible. WordPress et PHP restent responsables du rendu et de l&#39;administration côté serveur. React n&#39;est envisagé que lorsqu&#39;une interface interactive le justifie réellement.</p>
+<h3>Développement et production</h3>
+<p>Pendant le développement, Node.js et Vite compilent les sources front-end. Sur un hébergement WordPress classique, le site doit utiliser les ressources compilées : les visiteurs et le serveur ne doivent pas exécuter Vite ou installer npm.</p>
+<h3>Procédure</h3>
+<ol>
+<li>Rechercher un module ou comportement déjà existant avant d&#39;en créer un nouveau</li>
+<li>Préférer des types explicites aux conversions implicites; éviter <code>any</code> sans justification documentée. Dans le Starter ComKani, nous utilisons TypeScript pour détecter les erreurs de données pendant le développement. Nous définissons clairement les types lorsque cela améliore la compréhension du code. Nous vérifions les données provenant des formulaires et des API avant de les utiliser. Nous évitons any, car il désactive les contrôles de TypeScript. Si son utilisation est exceptionnellement nécessaire, nous expliquons pourquoi dans un commentaire. Notre objectif est de produire un code fiable, compréhensible et facilement maintenable par l&#39;équipe.</li>
+<li>Écrire un JSDoc décrivant le rôle, les entrées, les sorties et les effets de bord des fonctions publiques</li>
+<li>Lancer les vérifications de types avec la commande du projet puis tester dans le navigateur. Après une modification TypeScript, nous lançons npm run internal:typecheck depuis le dossier du thème afin de détecter les erreurs de typage. Si aucune erreur n&#39;est signalée, nous testons ensuite la fonctionnalité dans le navigateur, sur le site WordPress local. Ces deux contrôles sont complémentaires : TypeScript vérifie la cohérence du code, tandis que le navigateur permet de vérifier son fonctionnement réel.</li>
+<li>Vérifier le comportement sans JavaScript si la fonctionnalité doit rester accessible par dégradation progressive. Lorsque cela est pertinent, nous concevons les fonctionnalités essentielles pour qu&#39;elles restent utilisables même si JavaScript ne se charge pas. JavaScript doit améliorer l&#39;expérience utilisateur sans rendre inutilement les contenus ou les actions essentielles dépendants de son fonctionnement. Après le développement, nous désactivons temporairement JavaScript dans le navigateur pour vérifier le comportement des fonctionnalités concernées. Les composants qui nécessitent obligatoirement JavaScript doivent être identifiés et documentés.</li>
+</ol>
+<h3>Ce qui n&#39;est pas compilé par Vite</h3>
+<p>Les fichiers PHP du thème et de ComKani Core, ainsi que les scripts et styles autonomes du Core, ont leur propre circuit de chargement. Modifier <code>admin.css</code> ne crée donc pas nécessairement de nouvelle ligne <code>vite build</code>.</p>
+<h3>En cas d&#39;erreur TypeScript</h3>
+<p>Commencer par lire l&#39;erreur et vérifier les sources réelles. Si des dossiers parasites apparaissent dans <code>node_modules/@types</code> après des copies Finder, réinstaller avec <code>npm ci</code> depuis le thème, après avoir vérifié que le fichier <code>package-lock.json</code> est disponible. Cette commande reconstruit <code>node_modules</code> et ne modifie pas la base WordPress.</p></section>
+<section class="markdown-chapter" id="doc-09-pages-cpt-templates"><h2>Créer des pages, sous-pages, champs et CPT</h2>
+<h3>Image mentale</h3>
+<p><code>config/src/wordpress.ts</code> décrit la structure du site. <code>config/src/pages/</code> peut décrire les champs administrables. <code>config/src/index.ts</code> assemble les données. Le générateur transforme cette configuration en PHP. <code>scripts/wp-setup.php</code> crée ou synchronise les pages et menus dans la base <strong>uniquement quand tu l&#39;exécutes volontairement sur Local</strong>. Enfin, les templates PHP affichent les contenus.</p>
+<p><strong>Cinq opérations différentes</strong> : déclarer une page, créer la page en base, définir des champs, écrire le template et remplir les contenus dans WordPress. Faire la première ne réalise pas automatiquement les cinq.</p>
+<h3>1. Créer la structure des pages</h3>
+<p>Fichier : <code>config/src/wordpress.ts</code>. Dans le tableau <code>pages</code> :</p>
+<pre><code>
+pages: [
+
+    {title: &#39;Accueil&#39;, slug: &#39;accueil&#39;, home: true},
+
+    {title: &#39;Services&#39;, slug: &#39;services&#39;},
+
+    {title: &#39;Maintenance&#39;, slug: &#39;maintenance&#39;, parent: &#39;services&#39;},
+
+    {title: &#39;Contrats&#39;, slug: &#39;contrats&#39;, parent: &#39;maintenance&#39;},
+
+    {title: &#39;Contact&#39;, slug: &#39;contact&#39;},
+
+    {title: &#39;Actualités&#39;, slug: &#39;actualites&#39;},
+
+],
+
+</code></pre>
+<p><code>title</code> est visible dans WordPress ; <code>slug</code> est la clé URL stable ; <code>parent</code> crée une <strong>sous-page</strong> WordPress. Une sous-page n&#39;est pas automatiquement un sous-menu. Le programme synchronise les parents avant les enfants, y compris à plusieurs niveaux. Déclarer des slugs uniques ; ne jamais modifier un slug publié sans plan de redirection SEO.</p>
+<h3>2. Créer les menus et sous-menus</h3>
+<p>Toujours dans <code>config/src/wordpress.ts</code>, remplir <code>menus</code> :</p>
+<pre><code>
+menus: {
+
+    primary: [
+
+        {page: &#39;accueil&#39;, label: &#39;Accueil&#39;},
+
+        {page: &#39;services&#39;, label: &#39;Nos services&#39;, children: [
+
+            {page: &#39;maintenance&#39;, label: &#39;Maintenance&#39;, children: [
+
+                {page: &#39;contrats&#39;, label: &#39;Contrats de maintenance&#39;},
+
+            ]},
+
+        ]},
+
+        {page: &#39;contact&#39;, label: &#39;Contact&#39;},
+
+    ],
+
+    footer: {
+
+        navigation: {
+
+            label: &#39;Navigation&#39;,
+
+            items: [{page: &#39;services&#39;}, {page: &#39;contact&#39;}],
+
+        },
+
+    },
+
+    legal: [],
+
+},
+
+</code></pre>
+<p><code>children</code> représente des <strong>sous-menus</strong> : le setup utilise l&#39;identifiant d&#39;élément de menu WordPress (<code>menu-item-parent-id</code>). Un <code>parent</code> dans <code>pages</code> et un <code>children</code> dans <code>menus</code> sont indépendants. <code>page</code> référence un <code>slug</code> déclaré, <code>url</code> crée un lien personnalisé, <code>legal</code> référence une page juridique activée. Pour un lien extérieur : <code>{url: &#39;https://exemple.fr&#39;, label: &#39;Partenaire&#39;}</code>.</p>
+<p>Le setup ajoute ou met à jour les liens gérés et affecte les emplacements, mais <strong>ne supprime pas les anciennes entrées</strong>. Une modification manuelle du menu WordPress peut être réécrite par une synchronisation. Ne pas relancer ce setup sur un site client sans vérifier le résultat et sauvegarder la base.</p>
+<h3>3. Ajouter des champs administrables à la page</h3>
+<p>Fichier : <code>config/src/pages/Services.ts</code> (à créer pour ton projet, pas pour le Starter neutre) :</p>
+<pre><code>
+import {defineEditorPage} from &#39;../../framework/editor.ts&#39;;
+
+
+
+export default defineEditorPage({
+
+    label: &#39;Page Services&#39;,
+
+    groups: [{
+
+        key: &#39;introduction&#39;,
+
+        label: &#39;Introduction&#39;,
+
+        fields: [
+
+            {key: &#39;titre&#39;, label: &#39;Titre&#39;, type: &#39;text&#39;},
+
+            {key: &#39;description&#39;, label: &#39;Description&#39;, type: &#39;textarea&#39;},
+
+            {key: &#39;visuel&#39;, label: &#39;Visuel&#39;, type: &#39;image&#39;},
+
+            {key: &#39;video&#39;, label: &#39;Vidéo&#39;, type: &#39;video&#39;},
+
+        ],
+
+    }],
+
+});
+
+</code></pre>
+<p><strong>Attention : le Starter n&#39;importe pas automatiquement les fichiers de <code>pages/</code>.</strong> Pour relier ce schéma, adapter explicitement <code>config/src/index.ts</code> :</p>
+<pre><code>
+import servicesEditor from &#39;./pages/Services.ts&#39;;
+
+
+
+// Dans l&#39;objet config existant, remplacer uniquement la propriété pageEditor :
+
+pageEditor: {...editor.pageEditor, pages: {services: servicesEditor}},
+
+</code></pre>
+<p>La clé <code>services</code> correspond au slug de page, sans majuscule. Ce changement expose les champs dans WordPress après génération de la configuration et chargement de ComKani Core. Créer le dossier <code>config/src/pages/</code> s&#39;il n&#39;existe pas. Ne pas remplacer les autres imports ou propriétés de <code>config/src/index.ts</code>.</p>
+<h3>4. Afficher les champs dans le template PHP</h3>
+<p>Les champs sont stockés par le Core et ne sont pas automatiquement mis en page sur le site public. Prévoir le template WordPress approprié, par exemple <code>page-services.php</code> selon la hiérarchie des templates WordPress, et respecter les helpers réellement disponibles.</p>
+<pre><code>
+&lt;?php
+
+/* Template PHP du projet, illustration du principe, à adapter au thème. */
+
+get_header();
+
+$page_id = get_queried_object_id();
+
+$titre = function_exists(&#39;comkani_page_field&#39;)
+
+    ? comkani_page_field(&#39;titre&#39;, $page_id, &#39;services&#39;)
+
+    : &#39;&#39;;
+
+?&gt;
+
+&lt;main&gt;&lt;h1&gt;&lt;?php echo esc_html((string) $titre); ?&gt;&lt;/h1&gt;&lt;/main&gt;
+
+&lt;?php get_footer(); ?&gt;
+
+</code></pre>
+<p><strong>Signature confirmée :</strong> <code>comkani_page_field(string $field_key, int $post_id = 0, string $page_slug = &#39;&#39;)</code>. Une image correspond à un identifiant de pièce jointe, et non nécessairement à son URL. Pour une image, privilégier <code>wp_get_attachment_image($id, &#39;large&#39;)</code> après contrôle de l&#39;identifiant et du type. Un rendu de vidéo nécessite son propre balisage et un contrôle de l&#39;URL.</p>
+<h3>5. Créer un CPT (un type de contenu métier)</h3>
+<p>Un CPT convient à une collection structurée et répétée, comme des réalisations, des équipes ou des produits éditoriaux. Ne pas créer un CPT pour une simple page Services.</p>
+<p>Dans <code>config/src/wordpress.ts</code> :</p>
+<pre><code>
+postTypes: [
+
+    {
+
+        key: &#39;reference&#39;,
+
+        label: &#39;Références&#39;,
+
+        singular: &#39;Référence&#39;,
+
+        slug: &#39;references&#39;,
+
+        archive: true,
+
+        icon: &#39;dashicons-portfolio&#39;,
+
+
+
+        labels: {
+
+            addNew: &#39;Ajouter une référence&#39;,
+
+            editItem: &#39;Modifier la référence&#39;,
+
+            allItems: &#39;Toutes les références&#39;,
+
+        },
+
+
+
+        taxonomies: {
+
+            categories: {
+
+                enabled: true,
+
+                label: &#39;Catégories de références&#39;,
+
+                singular: &#39;Catégorie de référence&#39;,
+
+                slug: &#39;categories-references&#39;,
+
+            },
+
+            tags: {
+
+                enabled: true,
+
+                label: &#39;Étiquettes de références&#39;,
+
+                singular: &#39;Étiquette de référence&#39;,
+
+                slug: &#39;etiquettes-references&#39;,
+
+            },
+
+        },
+
+    },
+
+],
+
+</code></pre>
+<p>Le Core enregistre le CPT à l&#39;événement WordPress <code>init</code> ; ses contenus se créent ensuite dans l&#39;administration WordPress. Pour l&#39;affichage, construire <code>archive-realisation.php</code> et <code>single-realisation.php</code> <strong>dans le projet client</strong>, uniquement si une présentation particulière est requise. Le Core actuel n&#39;associe pas automatiquement des groupes de champs <code>defineEditorPage()</code> aux CPT : cette extension nécessiterait un travail distinct.</p>
+<h3>6. Vérifier le flux complet, sans toucher à la production</h3>
+<ol>
+<li>conserver les fichiers précédents dans Git et sauvegarder la base Local</li>
+<li>exécuter <code>npm run internal:typecheck</code>, puis <code>npm run internal:generate</code> depuis la racine du thème local</li>
+<li>regarder les modifications de <code>config/generated/project-config.php</code></li>
+<li>vérifier <strong>le site Local actif</strong>, puis exécuter <code>npm run internal:wp-setup</code> seulement si la synchronisation voulue est comprise</li>
+<li>dans WordPress : contrôler Pages, Apparence &gt; Menus (si accessible), l&#39;éditeur de Services et le CPT Réalisations</li>
+<li>tester un parent, deux niveaux de sous-pages, un sous-menu, un champ et l&#39;affichage PHP ; inspecter aussi le rendu mobile et clavier du thème</li>
+</ol>
+<p><strong>Retour arrière</strong> : restaurer les fichiers depuis le commit Git précédent. Les changements de pages/menus déjà synchronisés dans WordPress sont en base de données : Git ne les annule pas. Restaurer la sauvegarde Local adaptée si nécessaire, sans réinitialiser un site client.</p>
+<h3>Ce qui est automatique et ce qui ne l&#39;est pas</h3>
+<table><tbody>
+<tr><th>Action</th><th>Automatique ?</th></tr>
+<tr><td>générer la configuration PHP à partir des sources</td><td>oui, avec la commande de génération</td></tr>
+<tr><td>créer les pages et menus en base</td><td>oui, mais uniquement en lançant volontairement le setup Local</td></tr>
+<tr><td>appliquer les sous-menus <code>children</code></td><td>oui, après setup, dans la version corrigée</td></tr>
+<tr><td>créer l&#39;interface des champs d&#39;une page configurée</td><td>oui, via le Core chargé dans WordPress</td></tr>
+<tr><td>créer le design et les templates PHP</td><td>non, travail de développement</td></tr>
+<tr><td>créer le contenu éditorial d&#39;un CPT</td><td>non, administrable par le client</td></tr>
+<tr><td>créer automatiquement des champs pour chaque CPT</td><td>non, non pris en charge par ce flux</td></tr>
+</tbody></table></section>
+<section class="markdown-chapter" id="doc-10-composants"><h2>Utiliser nos composants</h2>
+<h3>Qu&#39;est-ce qu&#39;un composant ?</h3>
+<p>Un composant est un élément d&#39;interface réutilisable : FAQ, chiffres clés, témoignages, logos, bouton d&#39;action ou autre motif adapté à un site.</p>
+<p><strong>Une comparaison simple :</strong> notre bibliothèque ressemble à un ensemble de pièces de construction. Nous choisissons uniquement celles nécessaires au projet.</p>
+<h3>Notre principe de modularité</h3>
+<ul>
+<li>un composant possède une responsabilité claire</li>
+<li>sa configuration ne doit pas contenir de contenu hérité d&#39;un ancien client</li>
+<li>sa désactivation doit éviter son chargement PHP et celui de ses ressources propres en production</li>
+<li>ses dépendances communes doivent rester mutualisées</li>
+<li>le client ne doit pas pouvoir modifier librement le système SCSS de l&#39;agence</li>
+</ul>
+<h3>Administration WordPress et gestion des contenus</h3>
+<p>Dans le Starter WordPress ComKani, nous privilégions les interfaces d&#39;administration et les composants propriétaires développés par l&#39;agence.</p>
+<p><strong>Gutenberg n&#39;est pas notre solution d&#39;édition par défaut.</strong></p>
+<ul>
+<li><strong>Pages et contenus structurés :</strong> utiliser les interfaces ComKani adaptées à chaque type de contenu.</li>
+<li><strong>Articles de blog :</strong> Gutenberg peut être conservé lorsque son utilisation est pertinente, avec une sélection limitée de blocs autorisés.</li>
+<li><strong>Blocs natifs WordPress :</strong> leur utilisation doit rester exceptionnelle et justifiée.</li>
+<li><strong>Données répétables :</strong> privilégier des interfaces spécifiques, simples et ergonomiques.</li>
+<li><strong>Administration client :</strong> limiter les options aux fonctionnalités réellement utiles pour éviter toute modification accidentelle du design.</li>
+</ul>
+<p>Nous conservons une séparation claire entre la structure technique du site, les composants graphiques et les contenus administrables.</p>
+<p><strong>Notre objectif est de permettre aux clients de gérer facilement leurs contenus, sans intervenir dans la structure ou la conception du site.</strong></p>
+<h3>Ce qui reste à tester</h3>
+<p>La compilation conditionnelle des ressources, l&#39;activation PHP et les scénarios d&#39;édition par type de composant ne sont pas encore entièrement validés. Cela sera testé lors de la mise en place du prochain projet.</p></section>
+<section class="markdown-chapter" id="doc-11-comkani-core"><h2>Fonctions PHP ComKani et contenus administrables</h2>
+<h3>Image mentale</h3>
+<p>Le <strong>Core</strong> contient les mécanismes partagés. Le <strong>projet client</strong> fournit les données, les champs, les templates et le design. WordPress stocke les contenus ; les fonctions PHP les récupèrent. Le Core ne réalise pas automatiquement la mise en page.</p>
+<h3><code>comkani_page_field()</code> : récupérer un champ</h3>
+<p>Signature réelle (<code>packages/comkani-core/includes/editor.php</code>) :</p>
+<pre><code>
+comkani_page_field(string $field_key, int $post_id = 0, string $page_slug = &#39;&#39;)
+
+</code></pre>
+<ul>
+<li><code>field_key</code> : clé exacte déclarée dans le champ TypeScript (<code>titre</code>, <code>visuel</code>, etc.)</li>
+<li><code>post_id</code> : ID de la page WordPress ; <code>0</code> utilise la page actuellement consultée</li>
+<li><code>page_slug</code> : slug de configuration ; une chaîne vide utilise le slug de la page courante</li>
+<li>retour : valeur de champ, dont un entier pour une image/vidéo ; pour les groupes ou repeaters, la forme dépend du champ</li>
+</ul>
+<p>Exemple de page Services :</p>
+<pre><code>
+&lt;?php
+
+$page_id = (int) get_queried_object_id();
+
+$title = comkani_page_field(&#39;titre&#39;, $page_id, &#39;services&#39;);
+
+echo &#39;&lt;h1&gt;&#39; . esc_html((string) $title) . &#39;&lt;/h1&gt;&#39;;
+
+</code></pre>
+<h3>Afficher une image</h3>
+<p>Un champ <code>image</code> renvoie <strong>un identifiant WordPress</strong>, pas une URL. Pour un champ <code>visuel</code> :</p>
+<pre><code>
+&lt;?php
+
+$image_id = (int) comkani_page_field(&#39;visuel&#39;, get_queried_object_id(), &#39;services&#39;);
+
+if ($image_id &gt; 0 &amp;&amp; wp_attachment_is_image($image_id)) {
+
+    echo wp_get_attachment_image($image_id, &#39;large&#39;, false, [&#39;class&#39; =&gt; &#39;services-visual&#39;]);
+
+}
+
+</code></pre>
+<p><code>wp_get_attachment_image()</code> construit le HTML WordPress de l&#39;image, avec son contexte média. Pour obtenir seulement l&#39;URL : <code>wp_get_attachment_image_url($image_id, &#39;large&#39;)</code>, puis l&#39;échapper avec <code>esc_url()</code> à l&#39;affichage. Pour les vidéos, vérifier le MIME (<code>get_post_mime_type</code>) avant d&#39;afficher une balise <code>&lt;video&gt;</code> avec <code>esc_url(wp_get_attachment_url($id))</code>.</p>
+<h3><code>comkani_attachment_image()</code> : helper de rendu</h3>
+<p>Daniel a identifié cette fonction pour les images. Signature réelle dans <code>inc/component-helpers.php</code> :</p>
+<pre><code>
+comkani_attachment_image(int $attachment_id, $size = &#39;full&#39;, array $attributes = []): string
+
+</code></pre>
+<p>Ce helper renvoie du HTML d&#39;image ; il gère également les SVG. Exemple :</p>
+<pre><code>
+&lt;?php
+
+$visuel_id = (int) comkani_page_field(&#39;visuel&#39;, get_queried_object_id(), &#39;services&#39;);
+
+echo comkani_attachment_image($visuel_id, &#39;large&#39;, [&#39;class&#39; =&gt; &#39;services-image&#39;]);
+
+</code></pre>
+<p>La fonction renvoie une chaîne vide pour un identifiant nul. Elle ne doit pas recevoir directement une URL ni être utilisée pour une vidéo.</p>
+<h3>Autres fonctions <code>comkani_*()</code></h3>
+<p>Le préfixe <code>comkani_</code> est utilisé à la fois pour des <strong>helpers utilisables dans les templates</strong> et des <strong>fonctions internes</strong> (sécurité, duplication, nettoyage, administration). Ne pas appeler arbitrairement une fonction interne dans un template.</p>
+<p>Pour chaque nouveau helper destiné à être utilisé par Daniel ou par un futur collaborateur, ajouter à sa documentation : chemin du fichier, signature PHPDoc, paramètres, type retourné, dépendances, exemple de template et limites d&#39;utilisation. Référencer systématiquement sa source dans <code>packages/comkani-core/includes/</code> ou <code>inc/</code>.</p>
+<h3>Dépendances, vérifications et retour arrière</h3>
+<ul>
+<li>vérifier que le plugin ComKani Core est actif et que la configuration PHP a été régénérée</li>
+<li>utiliser la page courante ou le bon ID ; ne pas confondre slug et titre affiché</li>
+<li>échapper chaque sortie (<code>esc_html</code>, <code>esc_attr</code>, <code>esc_url</code> ou fonction WordPress produisant du HTML sûr)</li>
+<li>tester des champs vides, des images supprimées et le compte client WordPress</li>
+<li>ne jamais modifier directement le Core d&#39;un client livré pour corriger le Starter maître</li>
+<li>revenir au commit précédent pour le code, et restaurer séparément les contenus de recette si nécessaire</li>
+</ul></section>
+<section class="markdown-chapter" id="doc-12-administration-core"><h2>Administration WordPress et ComKani Core</h2>
+<h3>Notre objectif</h3>
+<p>L&#39;administration doit rester facile à comprendre et à utiliser pour les clients. ComKani Core apporte des fonctions mutualisées au Starter; il ne doit pas rendre le client dépendant d&#39;un outil de compilation front-end.</p>
+<h3>Où sont les fichiers</h3>
+<ul>
+<li>Modules PHP : <code>packages/comkani-core/includes/</code></li>
+<li>Styles d&#39;administration : <code>packages/comkani-core/assets/admin.css</code></li>
+<li>Scripts autonomes du Core : <code>packages/comkani-core/assets/</code></li>
+<li>Chargement des modules : vérifier le fichier principal du Core et les hooks WordPress avant d&#39;affirmer qu&#39;un fichier est inutilisé</li>
+</ul>
+<h3>Fonctions à contrôler dans la recette</h3>
+<ul>
+<li>Rôles, capacités, accès au tableau de bord et masquage des actions non autorisées</li>
+<li>Formulaires et validation des champs, anti-spam, envoi et journalisation selon configuration</li>
+<li>Médias, contenus partagés, duplication et suppression/restauration lorsque disponible</li>
+<li>Journal d&#39;activité et distinction entre un contenu dans la corbeille et une suppression définitive</li>
+<li>Cache et invalidation ciblée, sans effacer aveuglément des transients tiers</li>
+<li>SMTP, réglages de sécurité et affichage des erreurs en environnement local</li>
+</ul>
+<h3>Exemple : changer une couleur d&#39;administration</h3>
+<p>Modifier <code>packages/comkani-core/assets/admin.css</code>, puis enregistrer. Ce fichier est servi directement par WordPress et ne passe pas par la compilation Vite. Avec le Live Reload local actif, le navigateur peut s’actualiser automatiquement. Sinon, actualiser la page et vérifier le cache du navigateur ainsi que les règles CSS actives.</p>
+<h3>Précautions</h3>
+<p>Les paramètres secrets (mots de passe SMTP, clés, jetons) restent hors Git. Les opérations destructives sur la base ou les médias exigent une sauvegarde et un environnement identifié. Ne jamais confondre le site Local principal et le site de recette.</p></section>
+<section class="markdown-chapter" id="doc-13-qualite-tests-depannage"><h2>Qualité, tests et dépannage</h2>
+<h3>Nos niveaux de vérification</h3>
+<ul>
+<li>Contrôles statiques : cohérence, syntaxe, types, génération documentaire et packaging</li>
+<li>Tests dans Local : pages publiques, administration, formulaires, interactions, cache, permissions</li>
+<li>Recette séparée : installation et usage de l&#39;archive comme le ferait un nouveau projet</li>
+<li>Production : vérifications après déploiement et suivi des incidents</li>
+</ul>
+<p><strong>Une compilation réussie ne prouve pas que ComKani Core est entièrement testé.</strong> Les procédures et résultats des tests doivent rester datés.</p>
+<h3>Face à un problème</h3>
+<ol>
+<li>Identifier l&#39;environnement concerné : Starter source, site Local, recette ou production</li>
+<li>Reproduire l&#39;erreur et noter la commande, la page et le message complet</li>
+<li>Vérifier la source modifiée et les dépendances réellement chargées</li>
+<li>Établir si le problème concerne PHP, SCSS, TypeScript, WordPress, Local ou le navigateur</li>
+<li>Corriger une seule cause à la fois, puis effectuer un test de non-régression</li>
+<li>Documenter la décision et le retour arrière</li>
+</ol>
+<h3>Cas courants</h3>
+<ul>
+<li><code>npm run dev</code> reste ouvert après <code>watching for file changes</code> : comportement normal d&#39;une surveillance continue. Arrêter avec <code>Ctrl + C</code>.</li>
+<li>Vite compile mais la page ne se rafraîchit pas : la compilation et le Live Reload sont deux mécanismes distincts.</li>
+<li>La modification de <code>admin.css</code> ne déclenche pas Vite : ce fichier n&#39;est pas dans le pipeline du thème public.</li>
+<li>Un script npm n&#39;existe pas : vérifier <code>package.json</code> avant d&#39;utiliser une commande indiquée dans une ancienne documentation.</li>
+<li>Une fonctionnalité fonctionne avec un administrateur mais pas avec un autre compte : contrôler les capacités, le rôle et les conditions métier avant de modifier les permissions.</li>
+</ul>
+<h3>Traçabilité</h3>
+<p>Pour chaque anomalie, conserver le contexte, la correction, le test effectué, le résultat et le statut : confirmé, à confirmer ou non testé. La documentation ne doit pas présenter une hypothèse comme une validation.</p></section>
+<section class="markdown-chapter" id="doc-14-qualite-documentation"><h2>Notre manière de documenter le code</h2>
+<h3>Une règle simple</h3>
+<p>Chaque fichier de code concerné doit expliquer sa mission avant son implémentation. Une personne qui découvre le starter doit pouvoir comprendre son rôle sans lire immédiatement tout son contenu.</p>
+<h3>Les en-têtes de fichier</h3>
+<p>Indiquer : chemin du fichier, rôle, ce qu&#39;il fait et ce qu&#39;il ne fait pas. Ces mentions décrivent aussi les effets indirects, par exemple lorsqu&#39;un script appelle un autre outil.</p>
+<h3>Les fonctions</h3>
+<p>Documenter les fonctions et méthodes pertinentes avec <strong>JSDoc</strong> en JavaScript/TypeScript ou <strong>PHPDoc</strong> en PHP. Expliquer les paramètres, le retour et les comportements qui ne sont pas évidents.</p>
+<h3>Exceptions</h3>
+<p>Les fichiers SCSS et CSS suivent leurs propres conventions. Les fichiers JSON stricts n&#39;acceptent pas les commentaires : ils sont documentés dans le guide.</p>
+<h3>La documentation vivante</h3>
+<p>Lorsqu&#39;une fonction change de comportement, sa documentation et le chapitre correspondant doivent être mis à jour <strong>dans le même lot</strong>.</p>
+<h3>Pour les notions complexes</h3>
+<p>Nous pouvons ajouter des schémas, des captures de notre environnement de développement et des exemples concrets, avec un texte alternatif et une légende. Ne jamais intégrer de secrets ou d&#39;informations propres à un client dans ces illustrations.</p></section>
+<section class="markdown-chapter" id="doc-15-preproduction-production"><h2>Préproduction et production</h2>
+<h3>Deux étapes, deux objectifs</h3>
+<p><strong>La préproduction</strong> permet de tester un livrable sur un environnement dédié (serveur mutualisé de l&#39;agence) avant sa mise en ligne.</p>
+<p><strong>La production</strong> correspond au site public utilisé par les visiteurs.</p>
+<h3>Comment nous fabriquons les packages</h3>
+<p>Les deux commandes passent par un moteur de packaging partagé. La différence d&#39;environnement doit rester explicite dans la commande et dans la procédure de validation.</p>
+<h3>Ce que les ZIP doivent contenir</h3>
+<p>Les fichiers PHP du thème, les ressources CSS et JavaScript compilées et les configurations générées nécessaires. Les sources TypeScript, SCSS, Node et la documentation interne doivent rester hors du package client.</p>
+<h3>Ce que les commandes ne font pas</h3>
+<p>Préparer une archive n&#39;est pas déployer le site. La publication réelle, la synchronisation des contenus et la restauration de la base sont des opérations distinctes.</p>
+<h3>Vérifications avant livraison</h3>
+<ul>
+<li>inspecter l&#39;archive et son contenu</li>
+<li>installer le livrable sur une installation WordPress de test</li>
+<li>vérifier l&#39;affichage, les formulaires, les composants et l&#39;administration</li>
+<li>conserver une version précédente permettant un retour arrière</li>
+</ul>
+<p>La validation fonctionnelle complète des packages du starter reste à réaliser.</p></section>
+<section class="markdown-chapter" id="doc-16-parcours-livraison"><h2>Préproduction, livraison et mise en ligne</h2>
+<h3>Environnements à ne pas confondre</h3>
+<ul>
+<li>Starter source : code de référence de l&#39;agence</li>
+<li>Local : WordPress de développement sur le Mac</li>
+<li>Recette : installation distincte pour valider un ZIP et vérifier l&#39;absence de dépendances cachées</li>
+<li>Production : hébergement du site client, par exemple OVH ou IONOS, avec la configuration propre au client</li>
+</ul>
+<h3>Procédure avant livraison</h3>
+<ol>
+<li>Confirmer le périmètre du projet et la version du Starter</li>
+<li>Sauvegarder le code et les données de l&#39;environnement concerné</li>
+<li>Exécuter les contrôles techniques disponibles et corriger leurs erreurs</li>
+<li>Générer les ressources de production et l&#39;archive prévue par <code>package.json</code></li>
+<li>Installer cette archive sur l&#39;environnement de recette distinct</li>
+<li>Tester les écrans publics, l&#39;administration, les droits, les formulaires et les flux essentiels</li>
+<li>Vérifier les réglages spécifiques au client et les secrets hors du dépôt</li>
+<li>Établir un procès-verbal de recette et identifier les réserves avant le déploiement</li>
+</ol>
+<h3>Principes d&#39;exploitation</h3>
+<p>Les outils Node.js et Vite ne sont pas requis sur le serveur WordPress lorsque les fichiers finaux ont été générés. Ne jamais considérer la création d&#39;un ZIP comme un déploiement. Documenter le plan de retour arrière : archive précédente, sauvegarde de base et médias, vérification de la restauration.</p></section>
+<section class="markdown-chapter" id="doc-17-git-et-maintenance"><h2>Git, maintenance et évolution du Starter</h2>
+<h3>Source de vérité</h3>
+<p>Git permet de retrouver l&#39;origine d&#39;une modification et de revenir en arrière. Le Starter source est distinct des projets clients dérivés et des archives de livraison.</p>
+<h3>Avant chaque intervention</h3>
+<ol>
+<li>Vérifier la branche, les fichiers modifiés et le dernier commit validé</li>
+<li>Enregistrer une modification cohérente et documenter son objectif</li>
+<li>Ne pas versionner <code>node_modules</code>, les secrets, les archives temporaires ou les données personnelles de clients</li>
+<li>Examiner les différences avant de supprimer un fichier. Un module PHP peut être utilisé par chargement dynamique et non par import statique</li>
+<li>Lancer les contrôles réellement disponibles dans <code>package.json</code> et préparer les tests fonctionnels</li>
+</ol>
+<h3>Documentation du code</h3>
+<p>Les fichiers PHP, TypeScript, JavaScript et scripts d&#39;outillage doivent comporter un en-tête utile. Documenter les fonctions significatives avec PHPDoc ou JSDoc, en précisant leurs paramètres, leurs retours et leurs effets. Ne pas ajouter de commentaires artificiels aux fichiers SCSS. Le JSON standard n&#39;accepte pas de commentaires.</p>
+<h3>Maintenir un Starter réutilisable</h3>
+<p>Ne pas intégrer de contenus, paramètres SMTP ou identifiants propres à un client dans le socle. Conserver une interface WordPress compréhensible. Prévoir des configurations explicites et supprimer les outils obsolètes seulement après vérification de leurs usages.</p>
+<h3>Retour arrière</h3>
+<p>Restaurer un fichier ou revenir à un commit précis après avoir évalué les modifications locales. Pour une opération modifiant les données WordPress, le retour arrière nécessite également une sauvegarde adaptée, car Git ne restaure pas une base de données.</p></section>
+<section class="markdown-chapter" id="doc-18-contribuer-au-guide"><h2>Faire vivre ce guide ensemble</h2>
+<p>Ce guide appartient au Pôle Digital Studio sur la partie Développement web. Il est conçu pour les personnes présentes aujourd&#39;hui comme pour celles qui rejoindront l&#39;agence demain.</p>
+<h3>Quand ajouter une fiche ?</h3>
+<p>Lorsqu&#39;un nouveau composant, une convention, une procédure ou une décision technique devient utile à plusieurs personnes.</p>
+<h3>Notre format pédagogique</h3>
+<p>Pour chaque nouvelle manipulation, nous répondons aux questions suivantes : à quoi ça sert, pourquoi en avons-nous besoin, où cela agit, ce que cela modifie, ce que cela ne modifie pas, les risques, la vérification, le retour arrière et enfin les étapes à effectuer.</p>
+<h3>Bonnes pratiques éditoriales</h3>
+<ul>
+<li>écrire directement à la personne qui lit le guide, avec un ton professionnel, simple et accessible</li>
+<li>expliquer les termes techniques dès leur première apparition</li>
+<li>préférer un exemple réel et neutre à une formulation abstraite</li>
+<li>distinguer les mécanismes déjà testés des propositions ou évolutions futures</li>
+<li>relire la fiche lorsque le code change</li>
+<li>ajouter une illustration uniquement lorsqu&#39;elle clarifie une notion</li>
+<li>ne jamais publier de mot de passe, secret, identifiant privé ou donnée client</li>
+<li>ne jamais inclure de données de pilotage financier ou de gestion de l&#39;agence</li>
+</ul>
+<h3>Un guide en évolution</h3>
+<p>Le contenu technique est prioritaire. Le design graphique du manuel sera revu séparément par moi (Kani) pour correspondre pleinement à l&#39;identité de l&#39;agence ComKani, mais ce n&#39;est pas une priorité.</p></section>
+<section class="markdown-chapter" id="doc-19-audit-etat-starter"><h2>État technique du Starter ComKani</h2>
+<p>Ce document conserve un état de travail daté. Les procédures courantes se trouvent dans les chapitres principaux du manuel. En cas de divergence, vérifier le code et la version actuelle du Starter avant de réutiliser une indication historique.</p>
+<h3>Architecture</h3>
+<p>Les configurations sont dans <code>config/src</code>. Les ressources communes du front sont dans <code>resources/ts/main.ts</code>. <code>vite.config.ts</code> détermine les modules de composants à inclure à partir de <code>components</code>.</p>
+<h3>Activation</h3>
+<p>Le Starter dispose de composants réutilisables que nous activons selon les besoins de chaque projet.</p>
+<p>Le fichier <code>config/src/features/components.ts</code> centralise leur configuration.</p>
+<p>Lorsqu&#39;un composant est activé, nous chargeons uniquement les ressources nécessaires à son fonctionnement : PHP pour son intégration à WordPress et TypeScript lorsqu&#39;une interaction JavaScript est requise.</p>
+<p>Les composants désactivés ne doivent pas être inclus inutilement dans les fichiers JavaScript de production.</p>
+<p><strong>Notre objectif :</strong> disposer d&#39;une bibliothèque de composants ComKani réutilisable, tout en conservant des sites légers, performants et adaptés aux besoins de chaque client.</p>
+<h3>État des tests du Starter WordPress ComKani</h3>
+<p>Le Starter ComKani a déjà fait l&#39;objet de plusieurs vérifications techniques et de premiers tests fonctionnels dans Local.</p>
+<p>Vérifications déjà effectuées :</p>
+<ul>
+<li>Installation d&#39;un WordPress vierge sur un environnement de recette indépendant</li>
+<li>Activation du thème et de ComKani Core</li>
+<li>Compilation des ressources SCSS et TypeScript avec Vite.</li>
+<li>Exécution des contrôles techniques du Starter</li>
+<li>Premières vérifications de l&#39;administration ComKani et du journal d&#39;activité</li>
+</ul>
+<p>Points nécessitant une validation complémentaire :</p>
+<ul>
+<li>Édition des pages après les derniers ajustements des interfaces ComKani</li>
+<li>Restauration des contenus depuis le journal d&#39;activité</li>
+<li>Duplication des contenus et vérification des données associées</li>
+<li>Envoi, réception et traitement des différents formulaires</li>
+<li>Vérification des permissions selon les rôles utilisateurs.</li>
+<li>Recette complète des composants activés</li>
+<li>Installation et fonctionnement sur un hébergement WordPress classique.</li>
+</ul>
+<p>Nous distinguons les contrôles techniques réussis des fonctionnalités validées en conditions réelles.</p>
+<p>Une fonctionnalité déjà testée doit être vérifiée à nouveau lorsqu&#39;une modification du code peut affecter son comportement.</p>
+<p><strong>L&#39;objectif n&#39;est pas de recommencer les tests inutilement, mais de finaliser les validations manquantes et de contrôler les éventuelles régressions.</strong></p>
+<h3>Sécurité</h3>
+<p>Ne jamais intégrer des identifiants SMTP dans le dépôt, le guide ou les archives diffusables.</p>
+<h3>Image mentale</h3>
+<p>Le thème est la structure visible, ComKani Core fournit les fonctionnalités transversales et Vite prépare uniquement les ressources nécessaires au projet.</p></section>
+<section class="markdown-chapter" id="doc-20-audit-technique"><h2>Audit technique et recette du starter</h2>
+<h3>Contrôles vérifiés dans le code</h3>
+<ul>
+<li>Le Core charge le module de duplication depuis <code>packages/comkani-core/comkani-core.php</code></li>
+<li>Le module n&#39;ajoute le lien que si <code>duplication.enabled</code>, le type de contenu et les permissions sont valides</li>
+<li>Le chargement PHP des composants est conditionnel dans <code>inc/components.php</code> pour contact, booking, FAQ et WhatsApp</li>
+<li>Le point d&#39;entrée Vite inclut conditionnellement les modules TypeScript de booking, FAQ et témoignages. La correspondance entre tous les composants PHP, TS et SCSS reste à contrôler composant par composant</li>
+<li>Le moteur de packaging exclut explicitement <code>node_modules</code>, <code>scripts</code>, <code>resources</code>, <code>docs</code>, et les sources de configuration</li>
+</ul>
+<h3>Points non validés automatiquement</h3>
+<ul>
+<li>Tests WordPress de bout en bout : duplication, rôles, permissions, formulaires, cache, consentement et notifications</li>
+<li>Sécurité npm : l&#39;installation locale a signalé 19 vulnérabilités (1 modérée, 16 élevées, 2 critiques). Les packages et chemins de dépendance affectés doivent être identifiés à partir d&#39;un <code>npm audit --json</code> à jour. Aucune résolution ni innocuité ne sont présumées</li>
+<li>Packages <code>npm run preprod</code> et <code>npm run prod</code> : leur exécution et l&#39;inspection de leurs ZIP doivent être réussies avant livraison. Les scripts peuvent produire des archives dans <code>release/</code> mais ne déploient pas le thème</li>
+<li>Neutralisation exhaustive des héritages client dans tous les modules et médias : audit complémentaire nécessaire</li>
+</ul>
+<h3>Préproduction et production</h3>
+<p>Les commandes <code>npm run preprod</code> et <code>npm run prod</code> exécutent d&#39;abord les vérifications du projet, puis produisent les archives. Ne pas lancer de déploiement depuis le starter sans revue du package et validation de la Direction.</p>
+<p>Ne mettre aucune donnée de pilotage interne ou financière dans ce guide. Ne pas publier ce guide sur un site client.</p></section>
+<section class="markdown-chapter" id="doc-21-generalisation-v1"><h2>Généraliser le Starter ComKani</h2>
+<h3>Notre objectif</h3>
+<p>Nous préparons une base WordPress réutilisable : aucun futur projet ne doit hériter de l’identité ou des contenus d’un précédent site.</p>
+<h3>Ce que nous avons préparé</h3>
+<ul>
+<li>identité source : <code>ComKani Starter</code> / <code>comkani-starter</code></li>
+<li>nom du package npm : <code>comkani-wordpress-starter</code></li>
+<li>configuration WordPress minimale et neutre</li>
+<li>composants déclarés désactivés par défaut</li>
+<li>modèle éditorial de page d’accueil spécifique retiré de la configuration centrale</li>
+</ul>
+<h3>État des validations technique</h3>
+<p>Travaux déjà réalisés :</p>
+<ul>
+<li>Réinitialisation de la base WordPress de développement et réinstallation d&#39;un WordPress propre</li>
+<li>Suppression des anciens médias clients identifiés</li>
+<li>Création d&#39;une installation WordPress de recette indépendante</li>
+<li>Activation et premiers contrôles du thème et de ComKani Core</li>
+<li>Nettoyage de plusieurs fichiers obsolètes du Starter</li>
+<li>Vérification du fonctionnement de la compilation Vite</li>
+<li>Exécution réussie des contrôles techniques et des commandes de préparation des livrables sur une version antérieure</li>
+</ul>
+<p>Travaux partiellement validés :</p>
+<ul>
+<li>Neutralisation des templates et ressources : une dernière recherche exhaustive des références aux anciens projets reste nécessaire</li>
+<li>ComKani Core : plusieurs interfaces ont été testées, mais les derniers correctifs nécessitent une recette ciblée.</li>
+<li>Préproduction et production : les procédures de génération ont été vérifiées, mais pas le déploiement complet sur un serveur distant</li>
+</ul>
+<p>Validations restant à effectuer :</p>
+<ul>
+<li>Vérifier que seuls les composants activés sont intégrés aux ressources compilées</li>
+<li>Finaliser les scénarios de duplication et contrôler les données associées</li>
+<li>Tester la restauration des contenus depuis le journal d&#39;activité</li>
+<li>Valider les formulaires et les permissions utilisateurs.</li>
+<li>Vérifier les dernières modifications apportées aux interfaces d&#39;édition</li>
+<li>Effectuer une recette complète sur un environnement représentatif de la production</li>
+</ul>
+<p>Nous conservons les résultats des contrôles déjà réalisés. Nous ne répétons un test que lorsqu&#39;une évolution du code peut entraîner une régression ou lorsque sa validation précédente est insuffisamment documentée.</p>
+<h3>Image mentale</h3>
+<p>Le starter est une boîte à outils fermée et rangée. Lorsqu’un projet commence, nous choisissons les outils nécessaires : nous ne conservons pas les contenus ni les réglages d’un ancien client.</p></section>
+<section class="markdown-chapter" id="doc-23-limites-et-tests"><h2>Limites et vérifications avant adoption</h2>
+<p>Ce dossier fournit une <strong>base générique en cours de validation</strong>, pas une recette fonctionnelle WordPress achevée.</p>
+<h3>Contrôles réalisés</h3>
+<ul>
+<li>intégrité des chemins de configuration et existence des modules</li>
+<li>syntaxe des fichiers TypeScript modifiés par analyse statique</li>
+<li>syntaxe des fichiers PHP par <code>php -l</code></li>
+</ul>
+<h3>Vérifications à réaliser dans Local</h3>
+<ol>
+<li>installation sur une base WordPress neuve avec un thème au nom technique prévu</li>
+<li><code>npm ci</code> et <code>npm run check</code> depuis le Mac de développement</li>
+<li><code>npm run build</code>, rendu des pages et test de la navigation</li>
+<li>activation de chaque composant et comparaison des fichiers compilés</li>
+<li>tests des fonctions de ComKani Core, de la duplication et des droits utilisateur</li>
+<li>tests de préproduction et production sur un environnement isolé</li>
+<li>examen des composants, templates, SCSS et médias hérités avant utilisation client</li>
+</ol>
+<h3>Ce que ce travail ne fait pas</h3>
+<p>Il ne nettoie pas la base du site WordPress cloné dans Local, ne modifie aucun secret et ne teste pas automatiquement les formulaires ni l’administration WordPress. Les styles anciens et certains modules restent à généraliser.</p></section>
+<section class="markdown-chapter" id="doc-24-securite-dependances"><h2>Sécurité des dépendances Node.js</h2>
+<h3>Pourquoi cette simplification ?</h3>
+<p>Les outils npm servent seulement au <strong>développement</strong> et à la compilation. Ils ne doivent pas être déployés sur le serveur WordPress.</p>
+<h3>Vérifications avant un nouveau projet</h3>
+<ol>
+<li>Exécuter <code>npm install</code> pour mettre à jour les dépendances et <code>package-lock.json</code> après remplacement du fichier <code>package.json</code></li>
+<li>Exécuter <code>npm audit</code>. Aucune vulnérabilité ne doit subsister pour déclarer le chantier clôturé</li>
+<li>Exécuter <code>npm run check &amp;&amp; npm run preprod &amp;&amp; npm run prod</code></li>
+<li>Conserver ensemble les nouvelles versions de <code>package.json</code> et <code>package-lock.json</code> dans le référentiel du Starter</li>
+</ol>
+<p>Les fichiers de développement et <code>node_modules</code> sont exclus des archives WordPress.</p></section>
+<section class="markdown-chapter" id="doc-25-guide-exploitation-starter"><h2>Procédure de création et de livraison d&#39;un projet ComKani</h2>
+<h3>Environnements et responsabilités</h3>
+<table><tbody>
+<tr><th>Couche</th><th>Contient</th><th>Ne contient pas</th></tr>
+<tr><td>Développement maître (<code>starter-wordpress</code>)</td><td>Sources PHP, SCSS, TS, Vite, scripts npm, docs</td><td>Base de client réutilisable</td></tr>
+<tr><td>WordPress de développement (Local)</td><td>Contenus de test, comptes de test, plugins configurés</td><td>Identifiants de production</td></tr>
+<tr><td>Recette (<code>comkani-starter-recette</code>)</td><td>WordPress vierge et ZIP livré</td><td>Sources npm ou ancien client</td></tr>
+<tr><td>Préproduction</td><td>Site de validation du projet</td><td>Outillage npm obligatoire</td></tr>
+<tr><td>Production OVH / IONOS</td><td>WordPress, thème compilé, Core, plugins nécessaires</td><td>node_modules, .git, secrets du projet dans le ZIP</td></tr>
+</tbody></table>
+<h3>Avant chaque manipulation</h3>
+<p>Je confirme à quoi elle sert, pourquoi elle est requise, sur quel site et quel fichier elle agit, ce qu&#39;elle change, ce qu&#39;elle ne change pas, ses risques, sa vérification et son retour arrière. Je conserve une sauvegarde avant les manipulations destructives.</p>
+<h3>Démarrage d&#39;un nouveau projet</h3>
+<ol>
+<li>Je duplique le <strong>code</strong> du Starter (jamais sa base SQL). Je crée un nouveau site Local et une nouvelle BDD.</li>
+<li>Je prépare les données de marque, les pages, modules de demandes, SMTP et composants dans <code>config/src/</code> ; je n&#39;intègre aucun contenu client au Starter maître.</li>
+<li>Je conserve les mots de passe SMTP, sels WordPress et secrets hors de Git, du thème et des ZIP.</li>
+<li>Dans le terminal du <strong>thème de développement uniquement</strong>, <code>npm ci</code> installe les outils exactement selon <code>package-lock.json</code>. Cette commande crée <code>node_modules</code>, ne modifie pas les contenus WordPress ; je vérifie avec <code>npm audit</code> et <code>npm run check</code>. Retour arrière : restauration du lockfile ou copie source et réinstallation des dépendances.</li>
+<li><code>npm run init</code> initialise la configuration du projet <strong>après sauvegarde et lecture des options</strong> ; ne pas relancer aveuglément un outil pouvant réinitialiser des réglages.</li>
+<li><code>npm run build</code> génère la configuration PHP et les assets compilés. La commande n&#39;importe pas d&#39;ancienne base SQL et ne déploie pas le site ; je vérifie le front et le contrôle <code>npm run check</code>.</li>
+<li><code>npm run docs</code> génère et affiche le manuel local. Les modifications durables sont dans <code>docs/*.md</code> et <code>scripts/docs/generate-guide.ts</code>, jamais seulement dans <code>docs/index.html</code>.</li>
+<li><code>npm run preprod</code> puis <code>npm run prod</code> exécutent les contrôles et produisent les deux archives dans <code>release/</code>, sans déploiement distant. Je conserve une copie de l&#39;ancienne archive pour retour arrière.</li>
+</ol>
+<h3>URL de connexion personnalisée</h3>
+<p>Le Core contient une route de connexion configurable. <code>config/src/features/security.ts</code> contient <code>login.enabled</code> et <code>login.slug</code>, <strong>désactivés par défaut</strong>. Je prépare le slug avant build, teste la nouvelle URL dans une fenêtre privée avec le compte administrateur, conserve une session ouverte et vérifie le retour à la connexion standard. Une URL modifiée ne remplace ni le MFA ni la politique de comptes.</p>
+<h3>SMTP interne</h3>
+<p>Le Core lit les constantes <code>COMKANI_SMTP_*</code> définies <strong>avant</strong> le chargement de WordPress dans <code>wp-config.php</code> ou dans une configuration privée incluse à cet endroit. En Local, j&#39;utilise un compte ComKani de test et un expéditeur neutre. En production, j&#39;utilise les paramètres autorisés du projet. Je n&#39;exporte jamais les secrets. Je teste l&#39;envoi et l&#39;arrivée des messages.</p>
+<h3>Modules de demandes</h3>
+<p>J&#39;active exclusivement les formulaires requis (contact / devis / réservation / candidature). Je soumets chaque formulaire, vérifie la ligne dans ComKani, les notifications, les droits du client, les erreurs, les doublons et les pièces jointes. Une panne SMTP ne doit pas faire disparaître l&#39;enregistrement de la demande.</p>
+<h3>Nettoyage et livraison</h3>
+<p>Je ne migre jamais une base d&#39;un ancien client vers un nouveau projet ; j&#39;utilise une installation neuve. Une BDD réinitialisée ne supprime pas physiquement <code>wp-content/uploads/</code> : je vérifie et archive avant suppression des médias. Les plugins sont choisis selon le projet (Wordfence, WPvivid, Yoast ne sont pas obligatoires pour tous). Je vérifie le ZIP et la restauration complète des sauvegardes.</p>
+<h3>Créer rapidement un nouveau projet avec les configurations existantes</h3>
+<ol>
+<li>Partir d&#39;une copie indépendante du Starter maître et initialiser le projet client selon la procédure d&#39;initialisation</li>
+<li>Renseigner l&#39;identité et les options du projet dans <code>config/src/project.ts</code></li>
+<li>Définir les pages, sous-pages, menus, sous-menus et éventuels CPT dans <code>config/src/wordpress.ts</code></li>
+<li>Si les pages nécessitent des champs spéciaux, créer un schéma avec <code>defineEditorPage()</code> dans <code>config/src/pages/</code> et l&#39;importer explicitement dans <code>config/src/index.ts</code></li>
+<li>Vérifier les types, générer la configuration, examiner les différences Git</li>
+<li>Synchroniser volontairement <strong>sur une instance Local identifiée</strong>, après sauvegarde WordPress</li>
+<li>Développer les templates et composants nécessaires, puis saisir des contenus neutres de recette</li>
+<li>Tester l&#39;affichage, la navigation clavier, les permissions clients et les contenus vides</li>
+</ol>
+<p>Exemple pas à pas avec code et limites de l&#39;automatisation : <code>docs/09-pages-cpt-templates.md</code>.</p></section>
+<section class="markdown-chapter" id="doc-26-recette-core-1-9"><h2>Recette de non-régression : ComKani Core 1.9</h2>
+<p><strong>Statut initial : À TESTER.</strong> Les contrôles statiques et la compilation ne remplacent pas ces vérifications.</p>
+<table><tbody>
+<tr><th>ID</th><th>Test sur WordPress neuf</th><th>Résultat attendu</th><th>Statut</th></tr>
+<tr><td>R01</td><td>Activation du thème et premier chargement</td><td>Core et deux tables chargés, aucun warning</td><td>À TESTER</td></tr>
+<tr><td>R02</td><td>Dashboard avec compte administrateur</td><td>Santé + widgets modules activés seulement</td><td>À TESTER</td></tr>
+<tr><td>R03</td><td>Dashboard avec compte client restreint</td><td>Aucun accès technique indu ; widgets autorisés</td><td>À TESTER</td></tr>
+<tr><td>R04</td><td>Contact, devis, réservation, candidature</td><td>Enregistrement conforme pour chaque formulaire</td><td>À TESTER</td></tr>
+<tr><td>R05</td><td>Tentatives répétées et purge du cache</td><td>Compteurs anti-abus toujours actifs</td><td>À TESTER</td></tr>
+<tr><td>R06</td><td>SMTP : configuration valide puis erreur simulée</td><td>Message envoyé ou erreur tracée ; demande conservée</td><td>À TESTER</td></tr>
+<tr><td>R07</td><td>Candidature avec fichier non autorisé</td><td>Rejet sans fichier public accessible</td><td>À TESTER</td></tr>
+<tr><td>R08</td><td>Prévisualiser, optimiser puis restaurer un média</td><td>Sources sauvegardées et médias intacts</td><td>À TESTER</td></tr>
+<tr><td>R09</td><td>FAQ, édition et contenus partagés</td><td>Affichage et droits conformes au module actif</td><td>À TESTER</td></tr>
+<tr><td>R10</td><td>Dupliquer page, article, brouillon</td><td>Copie distincte, original inchangé</td><td>À TESTER</td></tr>
+<tr><td>R11</td><td>SEO avec Yoast actif puis absent</td><td>Absence de données structurées en double</td><td>À TESTER</td></tr>
+<tr><td>R12</td><td>Consentement accepté, refusé et retiré</td><td>Aucun traceur non essentiel avant autorisation</td><td>À TESTER</td></tr>
+<tr><td>R13</td><td>URL de connexion personnalisée</td><td>Nouvelle route utilisable et accès récupérable</td><td>À TESTER</td></tr>
+<tr><td>R14</td><td>Export SQL / import en bac à sable</td><td>Sauvegarde, récupération et droits agence</td><td>À TESTER</td></tr>
+<tr><td>R15</td><td>Audit préproduction / production</td><td>Sans source npm, secrets, fichiers parasites</td><td>À TESTER</td></tr>
+<tr><td>R16</td><td>PHP 8.2+ / WordPress récent / OVH / IONOS</td><td>Absence d&#39;erreurs et compatibilité vérifiée</td><td>À TESTER</td></tr>
+</tbody></table>
+<h3>Procédure de validation</h3>
+<p>Pour chaque scénario, noter : environnement (Local/recette/préproduction), version WordPress/PHP/Core, utilisateur, configuration, résultat observé, capture ou log, statut <strong>VALIDÉ / À CORRIGER</strong>, et correctif éventuel. Un résultat non exécuté reste « À TESTER ».</p>
+<h3>Retour arrière</h3>
+<p>Avant une installation, exporter BDD et fichiers ou faire un point de restauration Local. Une régression Core se traite par restauration de l&#39;archive précédente et, si nécessaire, de la sauvegarde BDD. Ne jamais restaurer uniquement la BDD si ses médias ont été supprimés.</p></section>
+<section class="markdown-chapter" id="doc-27-inventaire-fichiers"><h2>Inventaire technique du Starter ComKani</h2>
+<p><strong>Référence : archive <code>comkani-starter(6).zip</code>, analysée le 10 octobre 2026.</strong> L’inventaire ci-dessous décrit les fichiers réellement présents dans cette copie. Il ne constitue pas une validation fonctionnelle des modules WordPress.</p>
+<h3>Règles de conservation</h3>
+<ul>
+<li>Ne pas supprimer un module PHP uniquement parce qu’il ne figure pas dans les imports TypeScript : WordPress charge aussi les fichiers par hooks, inclusions et conditions.</li>
+<li>Les fichiers SCSS sont des sources à préserver, sans ajout d’en-têtes documentaires.</li>
+<li>Les fichiers JSON standards ne peuvent pas recevoir de commentaires PHPDoc/JSDoc.</li>
+<li><code>node_modules/</code>, <code>release/</code>, <code>.DS_Store</code>, <code>__MACOSX/</code> et les fichiers <code>._*</code> ne font pas partie de l’archive source livrable. Leur présence dans le ZIP reçu ne signifie pas qu’ils doivent être versionnés.</li>
+<li>Les fichiers compilés et générés doivent être reconstruits depuis leurs sources, jamais modifiés à la main.</li>
+</ul>
+<h3>Contrôles sur les fonctionnalités annoncées</h3>
+<table><tbody>
+<tr><th>Domaine</th><th>Éléments trouvés dans le code</th><th>Conclusion sur le code</th><th>Validation fonctionnelle</th></tr>
+<tr><td>Composants facultatifs PHP</td><td><code>inc/components.php</code> et <code>inc/component-helpers.php</code></td><td>Activation conditionnelle présente pour contact, booking, faq et whatsapp</td><td>À confirmer sous WordPress</td></tr>
+<tr><td>Composants TypeScript</td><td><code>vite.config.ts</code>, <code>config/src/features/components.ts</code></td><td>Entrée Vite virtuelle qui sélectionne booking, faq et testimonials selon la configuration</td><td>Exclusion réelle du bundle à tester avec une activation et une désactivation</td></tr>
+<tr><td>Édition des pages</td><td><code>packages/comkani-core/includes/editor.php</code></td><td>Désactivation Gutenberg pour les pages, retrait conditionnel du support éditeur natif ; exception prévue pour les pages légales reconnues</td><td>Tester page standard, page légale, page non configurée</td></tr>
+<tr><td>Articles et CPT</td><td><code>packages/comkani-core/includes/post-types.php</code></td><td>Gestion des types de contenus présente ; règles spécifiques distinctes des pages</td><td>Vérifier les permissions et écrans d’édition</td></tr>
+<tr><td>Duplication</td><td><code>packages/comkani-core/includes/duplicate.php</code></td><td>Module présent dans le Core</td><td>Tester contenu, métadonnées et rôles</td></tr>
+<tr><td>Formulaires</td><td><code>packages/comkani-core/includes/requests.php</code>, <code>request-settings.php</code>, <code>smtp.php</code></td><td>Modules présents</td><td>Tester de bout en bout les envois, notifications et anti-spam</td></tr>
+<tr><td>Journal d’activité</td><td><code>packages/comkani-core/includes/activity-log.php</code></td><td>Module présent</td><td>Tester permissions et restauration de contenus</td></tr>
+<tr><td>Live Reload WordPress</td><td><code>scripts/dev-live-reload.cjs</code>, <code>inc/dev-live-reload.php</code></td><td>Mécanisme local présent</td><td>Tester dans navigateur Local</td></tr>
+<tr><td>Manuel</td><td><code>scripts/docs/generate-guide.ts</code>, <code>scripts/docs/dev.cjs</code></td><td>Génération HTML et surveillance des Markdown présentes</td><td>Vérifier le rafraîchissement navigateur sur Mac</td></tr>
+<tr><td>Livraison</td><td><code>scripts/package-project.ts</code>, <code>scripts/lib/package-theme.ts</code></td><td>Scripts de conditionnement présents</td><td>Vérifier archives produites et installation distante</td></tr>
+</tbody></table>
+<h3>Scripts npm du ZIP reçu</h3>
+<p>Les commandes officielles sont définies par le champ <code>scripts</code> de <code>package.json</code>. <code>npm run qa</code> n’existe pas dans la version analysée. <code>npm run dev</code> est une surveillance continue et ne se termine pas tout seul.</p>
+<table><tbody>
+<tr><th>Commande</th><th>Action déclarée</th></tr>
+<tr><td><code>npm run init</code></td><td><code>tsx scripts/init-project.ts</code></td></tr>
+<tr><td><code>npm run dev</code></td><td><code>npm run internal:dev-build</code></td></tr>
+<tr><td><code>npm run check</code></td><td><code>npm run internal:clean &amp;&amp; npm run internal:docs-generate &amp;&amp; tsx scripts/check-project.ts</code></td></tr>
+<tr><td><code>npm run build</code></td><td><code>npm run internal:generate &amp;&amp; vite build</code></td></tr>
+<tr><td><code>npm run preprod</code></td><td><code>npm run internal:verify-release &amp;&amp; tsx scripts/package-project.ts preproduction</code></td></tr>
+<tr><td><code>npm run prod</code></td><td><code>npm run internal:verify-release &amp;&amp; tsx scripts/package-project.ts production</code></td></tr>
+<tr><td><code>npm run docs</code></td><td><code>npm run internal:docs-generate &amp;&amp; tsx scripts/docs/serve.ts</code></td></tr>
+<tr><td><code>npm run internal:generate</code></td><td><code>tsx scripts/generate-project-config.ts &amp;&amp; tsx scripts/generate-design-system.ts</code></td></tr>
+<tr><td><code>npm run internal:verify-release</code></td><td><code>npm run internal:generate &amp;&amp; npm run internal:lint-scss &amp;&amp; npm run internal:typecheck &amp;&amp; vite build &amp;&amp; npm run check</code></td></tr>
+<tr><td><code>npm run internal:lint-scss</code></td><td><code>tsx scripts/check-scss.ts</code></td></tr>
+<tr><td><code>npm run internal:typecheck</code></td><td><code>tsc --noEmit</code></td></tr>
+<tr><td><code>npm run internal:docs-generate</code></td><td><code>tsx scripts/docs/generate-guide.ts</code></td></tr>
+<tr><td><code>npm run internal:dev-build</code></td><td><code>npm run internal:generate &amp;&amp; node scripts/dev-live-reload.cjs</code></td></tr>
+<tr><td><code>npm run internal:release</code></td><td><code>tsx scripts/release.ts</code></td></tr>
+<tr><td><code>npm run internal:clean</code></td><td><code>tsx scripts/clean-system.ts</code></td></tr>
+<tr><td><code>npm run internal:wp-setup</code></td><td><code>tsx scripts/wp/run.ts setup</code></td></tr>
+<tr><td><code>npm run internal:wp-setup-adopt</code></td><td><code>tsx scripts/wp/run.ts setup:adopt</code></td></tr>
+<tr><td><code>npm run internal:wp-setup-prune</code></td><td><code>tsx scripts/wp/run.ts setup:prune</code></td></tr>
+<tr><td><code>npm run internal:wp-db-check</code></td><td><code>tsx scripts/wp/run.ts db:check</code></td></tr>
+<tr><td><code>npm run internal:wp-db-clean</code></td><td><code>tsx scripts/wp/run.ts db:clean</code></td></tr>
+<tr><td><code>npm run internal:wp-themes-check</code></td><td><code>tsx scripts/wp/run.ts themes:check</code></td></tr>
+<tr><td><code>npm run internal:wp-themes-clean</code></td><td><code>tsx scripts/wp/run.ts themes:clean</code></td></tr>
+<tr><td><code>npm run internal:wp-cache</code></td><td><code>tsx scripts/wp/run.ts cache</code></td></tr>
+</tbody></table>
+<h3>Inventaire des chemins présents</h3>
+<p>Cette liste est générée à partir des sources extraites, hors dépendances npm et archives de livraison. Les fichiers <code>docs/*.md</code> sont présentés selon le nouvel ordre de lecture.</p>
+<h4>PHP et templates (56)</h4>
+<ul>
+<li><code>404.php</code></li>
+<li><code>archive.php</code></li>
+<li><code>components/booking/booking.php</code></li>
+<li><code>components/contact/contact.php</code></li>
+<li><code>components/faq/faq.php</code></li>
+<li><code>components/testimonials/testimonials.php</code></li>
+<li><code>components/whatsapp/whatsapp.php</code></li>
+<li><code>config/generated/project-config.php</code> (généré, ne pas éditer directement)</li>
+<li><code>footer.php</code></li>
+<li><code>front-page.php</code></li>
+<li><code>functions.php</code></li>
+<li><code>header.php</code></li>
+<li><code>home.php</code></li>
+<li><code>inc/assets.php</code></li>
+<li><code>inc/component-helpers.php</code></li>
+<li><code>inc/components.php</code></li>
+<li><code>inc/dev-live-reload.php</code></li>
+<li><code>inc/project.php</code></li>
+<li><code>inc/theme.php</code></li>
+<li><code>inc/uploads.php</code></li>
+<li><code>index.php</code></li>
+<li><code>packages/comkani-core/comkani-core.php</code></li>
+<li><code>packages/comkani-core/includes/activity-log.php</code></li>
+<li><code>packages/comkani-core/includes/admin.php</code></li>
+<li><code>packages/comkani-core/includes/cache.php</code></li>
+<li><code>packages/comkani-core/includes/capabilities.php</code></li>
+<li><code>packages/comkani-core/includes/consent.php</code></li>
+<li><code>packages/comkani-core/includes/database.php</code></li>
+<li><code>packages/comkani-core/includes/duplicate.php</code></li>
+<li><code>packages/comkani-core/includes/editor.php</code></li>
+<li><code>packages/comkani-core/includes/faq.php</code></li>
+<li><code>packages/comkani-core/includes/integrations.php</code></li>
+<li><code>packages/comkani-core/includes/legal-pages.php</code></li>
+<li><code>packages/comkani-core/includes/media.php</code></li>
+<li><code>packages/comkani-core/includes/notification-bar.php</code></li>
+<li><code>packages/comkani-core/includes/post-types.php</code></li>
+<li><code>packages/comkani-core/includes/profile.php</code></li>
+<li><code>packages/comkani-core/includes/project.php</code></li>
+<li><code>packages/comkani-core/includes/request-settings.php</code></li>
+<li><code>packages/comkani-core/includes/requests-privacy.php</code></li>
+<li><code>packages/comkani-core/includes/requests.php</code></li>
+<li><code>packages/comkani-core/includes/security.php</code></li>
+<li><code>packages/comkani-core/includes/seo.php</code></li>
+<li><code>packages/comkani-core/includes/setup.php</code></li>
+<li><code>packages/comkani-core/includes/shared-content.php</code></li>
+<li><code>packages/comkani-core/includes/smtp.php</code></li>
+<li><code>page.php</code></li>
+<li><code>scripts/wp-setup.php</code></li>
+<li><code>scripts/wp/cache-clear.php</code></li>
+<li><code>scripts/wp/database-cleanup.php</code></li>
+<li><code>scripts/wp/theme-cleanup.php</code></li>
+<li><code>search.php</code></li>
+<li><code>single.php</code></li>
+<li><code>templates/legal/mentions.php</code></li>
+<li><code>templates/legal/privacy-cookies.php</code></li>
+<li><code>templates/page-legal.php</code></li>
+</ul>
+<h4>TypeScript / JavaScript (50)</h4>
+<ul>
+<li><code>assets/build/main 2.js</code> (généré, ne pas éditer directement)</li>
+<li><code>assets/build/main 3.js</code> (généré, ne pas éditer directement)</li>
+<li><code>assets/build/main.js</code> (généré, ne pas éditer directement)</li>
+<li><code>components/booking/booking.ts</code></li>
+<li><code>components/faq/faq.ts</code></li>
+<li><code>components/testimonials/testimonials.ts</code></li>
+<li><code>config/framework/config.ts</code></li>
+<li><code>config/framework/editor.ts</code></li>
+<li><code>config/framework/fields.ts</code></li>
+<li><code>config/framework/wordpress.ts</code></li>
+<li><code>config/src/features/components.ts</code></li>
+<li><code>config/src/features/consent.ts</code></li>
+<li><code>config/src/features/duplication.ts</code></li>
+<li><code>config/src/features/editor.ts</code></li>
+<li><code>config/src/features/forms.ts</code></li>
+<li><code>config/src/features/security.ts</code></li>
+<li><code>config/src/features/seo.ts</code></li>
+<li><code>config/src/features/shared-content.ts</code></li>
+<li><code>config/src/index.ts</code></li>
+<li><code>config/src/project.ts</code></li>
+<li><code>config/src/wordpress.ts</code></li>
+<li><code>packages/comkani-core/assets/admin.js</code></li>
+<li><code>packages/comkani-core/assets/consent.js</code></li>
+<li><code>packages/comkani-core/assets/editor.js</code></li>
+<li><code>packages/comkani-core/assets/media.js</code></li>
+<li><code>postcss.config.js</code></li>
+<li><code>resources/ts/layout/header-scroll.ts</code></li>
+<li><code>resources/ts/main.ts</code></li>
+<li><code>resources/ts/shared/button-motion.ts</code></li>
+<li><code>resources/ts/shared/modal.ts</code></li>
+<li><code>resources/ts/shared/motion.ts</code></li>
+<li><code>resources/ts/shared/navigation.ts</code></li>
+<li><code>resources/ts/shared/scroll-shift.ts</code></li>
+<li><code>scripts/check-project.ts</code></li>
+<li><code>scripts/check-scss.ts</code></li>
+<li><code>scripts/clean-system.ts</code></li>
+<li><code>scripts/dev-live-reload.cjs</code></li>
+<li><code>scripts/docs/dev.cjs</code></li>
+<li><code>scripts/docs/generate-guide.ts</code></li>
+<li><code>scripts/docs/serve.ts</code></li>
+<li><code>scripts/generate-design-system.ts</code></li>
+<li><code>scripts/generate-project-config.ts</code></li>
+<li><code>scripts/init-project.ts</code></li>
+<li><code>scripts/lib/package-theme.ts</code></li>
+<li><code>scripts/lib/project-config-validation.ts</code></li>
+<li><code>scripts/lib/project-config.ts</code></li>
+<li><code>scripts/package-project.ts</code></li>
+<li><code>scripts/release.ts</code></li>
+<li><code>scripts/wp/run.ts</code></li>
+<li><code>vite.config.ts</code></li>
+</ul>
+<h4>SCSS et styles (34)</h4>
+<ul>
+<li><code>assets/build/main 2.css</code> (généré, ne pas éditer directement)</li>
+<li><code>assets/build/main.css</code> (généré, ne pas éditer directement)</li>
+<li><code>packages/comkani-core/assets/admin.css</code></li>
+<li><code>packages/comkani-core/assets/login.css</code></li>
+<li><code>packages/comkani-core/assets/toolbar.css</code></li>
+<li><code>resources/scss/base/_animations.scss</code></li>
+<li><code>resources/scss/base/_global.scss</code></li>
+<li><code>resources/scss/base/_reset.scss</code></li>
+<li><code>resources/scss/components/_booking.scss</code></li>
+<li><code>resources/scss/components/_buttons.scss</code></li>
+<li><code>resources/scss/components/_consent.scss</code></li>
+<li><code>resources/scss/components/_faq.scss</code></li>
+<li><code>resources/scss/components/_footer.scss</code></li>
+<li><code>resources/scss/components/_forms.scss</code></li>
+<li><code>resources/scss/components/_header.scss</code></li>
+<li><code>resources/scss/components/_modal.scss</code></li>
+<li><code>resources/scss/components/_testimonials.scss</code></li>
+<li><code>resources/scss/components/_whatsapp.scss</code></li>
+<li><code>resources/scss/foundations/_effects.scss</code></li>
+<li><code>resources/scss/foundations/_layout.scss</code></li>
+<li><code>resources/scss/foundations/_motions.scss</code></li>
+<li><code>resources/scss/foundations/_radius.scss</code></li>
+<li><code>resources/scss/foundations/_shadows.scss</code></li>
+<li><code>resources/scss/foundations/_spacings.scss</code></li>
+<li><code>resources/scss/pages/_legal.scss</code></li>
+<li><code>resources/scss/pages/_page-404.scss</code></li>
+<li><code>resources/scss/style.scss</code></li>
+<li><code>resources/scss/theme/_colors-dark.scss</code></li>
+<li><code>resources/scss/theme/_colors-light.scss</code></li>
+<li><code>resources/scss/theme/_mixins.scss</code></li>
+<li><code>resources/scss/theme/_typography-custom.scss</code></li>
+<li><code>resources/scss/theme/_typography.scss</code></li>
+<li><code>resources/scss/theme/_variables.scss</code></li>
+<li><code>style.css</code></li>
+</ul>
+<h4>Configuration, médias et autres (29)</h4>
+<ul>
+<li><code>.gitignore</code></li>
+<li><code>.nvmrc</code></li>
+<li><code>README.md</code></li>
+<li><code>config/development.example.json</code></li>
+<li><code>config/development.json</code></li>
+<li><code>config/generated/manifest.json</code> (généré, ne pas éditer directement)</li>
+<li><code>config/tokens/borders.tokens.json</code></li>
+<li><code>config/tokens/colors/dark.tokens.json</code></li>
+<li><code>config/tokens/colors/light.tokens.json</code></li>
+<li><code>config/tokens/effects.tokens.json</code></li>
+<li><code>config/tokens/grid.tokens.json</code></li>
+<li><code>config/tokens/motions.tokens.json</code></li>
+<li><code>config/tokens/radius.tokens.json</code></li>
+<li><code>config/tokens/shadows.tokens.json</code></li>
+<li><code>config/tokens/spacings/desktop.tokens.json</code></li>
+<li><code>config/tokens/spacings/mobile.tokens.json</code></li>
+<li><code>config/tokens/spacings/tablet.tokens.json</code></li>
+<li><code>config/tokens/typography/desktop.tokens.json</code></li>
+<li><code>config/tokens/typography/mobile.tokens.json</code></li>
+<li><code>config/tokens/typography/styles.tokens.json</code></li>
+<li><code>config/tokens/typography/tablet.tokens.json</code></li>
+<li><code>docs/index.html</code> (généré, ne pas éditer directement)</li>
+<li><code>docs/media/architecture-starter.svg</code></li>
+<li><code>package-lock.json</code></li>
+<li><code>package.json</code></li>
+<li><code>packages/comkani-core/assets/logo-agence-comkani-white.svg</code></li>
+<li><code>screenshot.png</code></li>
+<li><code>theme.json</code></li>
+<li><code>tsconfig.json</code></li>
+</ul>
+<h4>Sources Markdown (29)</h4>
+<ul>
+<li><code>docs/00-preambule.md</code></li>
+<li><code>docs/01-comprendre-le-starter.md</code></li>
+<li><code>docs/02-architecture.md</code></li>
+<li><code>docs/03-prise-en-main.md</code></li>
+<li><code>docs/04-configuration.md</code></li>
+<li><code>docs/05-commandes.md</code></li>
+<li><code>docs/06-initialisation.md</code></li>
+<li><code>docs/07-design-system.md</code></li>
+<li><code>docs/08-typescript-et-javascript.md</code></li>
+<li><code>docs/09-pages-cpt-templates.md</code></li>
+<li><code>docs/10-composants.md</code></li>
+<li><code>docs/11-comkani-core.md</code></li>
+<li><code>docs/12-administration-core.md</code></li>
+<li><code>docs/13-qualite-tests-depannage.md</code></li>
+<li><code>docs/14-qualite-documentation.md</code></li>
+<li><code>docs/15-preproduction-production.md</code></li>
+<li><code>docs/16-parcours-livraison.md</code></li>
+<li><code>docs/17-git-et-maintenance.md</code></li>
+<li><code>docs/18-contribuer-au-guide.md</code></li>
+<li><code>docs/19-audit-etat-starter.md</code></li>
+<li><code>docs/20-audit-technique.md</code></li>
+<li><code>docs/21-generalisation-v1.md</code></li>
+<li><code>docs/22-demarrage-multipage.md</code></li>
+<li><code>docs/23-limites-et-tests.md</code></li>
+<li><code>docs/24-securite-dependances.md</code></li>
+<li><code>docs/25-guide-exploitation-starter.md</code></li>
+<li><code>docs/26-recette-core-1-9.md</code></li>
+<li><code>docs/27-inventaire-fichiers.md</code></li>
+<li><code>docs/28-verification-documentation-code.md</code></li>
+<li><code>docs/28-verification-documentation-code.md</code></li>
+</ul>
+<h3>Limites de cette vérification</h3>
+<p>La présence et la cohérence des déclarations ont été comparées avec les sources fournies. Un module présent ne prouve pas son fonctionnement complet. Les tests navigateur WordPress Local, les tests de formulaires SMTP, la restauration, la vérification détaillée des droits et la livraison sur hébergement restent des contrôles distincts.</p></section><div class="footer">Sources éditoriales : docs/*.md. Fichier HTML généré automatiquement, ne pas modifier directement.</div></main></div><script>(()=>{const links=[...document.querySelectorAll('.side a[href^="#doc-"]')];const sections=links.map(a=>({a,el:document.getElementById(a.getAttribute('href').slice(1))})).filter(x=>x.el);function update(){let current=sections[0];for(const item of sections){if(item.el.getBoundingClientRect().top<=window.innerHeight*0.28)current=item;}for(const item of sections){const active=item===current;item.a.classList.toggle('is-active',active);if(active)item.a.setAttribute('aria-current','location');else item.a.removeAttribute('aria-current');}}window.addEventListener('scroll',update,{passive:true});window.addEventListener('hashchange',update);update();})();</script></body></html>

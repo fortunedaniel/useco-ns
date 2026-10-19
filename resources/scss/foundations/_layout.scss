@@ -1,0 +1,67 @@
+// =============================================================================
+// FICHIER GÉNÉRÉ AUTOMATIQUEMENT - NE PAS MODIFIER DIRECTEMENT
+// Source : config/tokens/grid.tokens.json
+// Générateur : scripts/generate-design-system.ts
+// Toute modification manuelle sera remplacée par npm run tokens/dev/qa.
+// =============================================================================
+
+:root {
+    --layout-frame: 375px;
+    --layout-padding: 24px;
+    --grid-columns: 4;
+    --grid-gutter: 16px;
+}
+
+@media (min-width: 393px) {
+    :root {
+        --layout-frame: 393px;
+        --layout-padding: 24px;
+        --grid-columns: 4;
+        --grid-gutter: 16px;
+    }
+}
+
+@media (min-width: 440px) {
+    :root {
+        --layout-frame: 440px;
+        --layout-padding: 32px;
+        --grid-columns: 4;
+        --grid-gutter: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --layout-frame: 768px;
+        --layout-padding: 32px;
+        --grid-columns: 8;
+        --grid-gutter: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --layout-frame: 1280px;
+        --layout-padding: 64px;
+        --grid-columns: 12;
+        --grid-gutter: 24px;
+    }
+}
+
+@media (min-width: 1440px) {
+    :root {
+        --layout-frame: 1440px;
+        --layout-padding: 80px;
+        --grid-columns: 12;
+        --grid-gutter: 24px;
+    }
+}
+
+@media (min-width: 1728px) {
+    :root {
+        --layout-frame: 1728px;
+        --layout-padding: 80px;
+        --grid-columns: 12;
+        --grid-gutter: 24px;
+    }
+}
